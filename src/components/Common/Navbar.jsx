@@ -31,17 +31,16 @@ function Navbar() {
               <a href="/Events">Events</a>
             </li>
             <li className="m-4 text-tigetgold text-[17px] font-normal hover:text-[white] hover:font-semibold">
-              <a href="/watchOnline">OnlineTicket</a>
-            </li>
-            <li className="m-4 text-tigetgold text-[17px] font-normal hover:text-[white] hover:font-semibold">
-              <a href="/Ticket">Check Ticket</a>
-            </li>
-            <li className="m-4 text-tigetgold text-[17px] font-normal hover:text-[white] hover:font-semibold">
               <a href="/AboutUs">About Us</a>
+            </li>
+            <li className="m-4 text-tigetgold text-[17px] font-normal hover:text-[white] hover:font-semibold">
+              <a href="/MyTicket">My Ticket</a>
             </li>
             <li className="m-4 text-tigetgold text-[17px] font-normal hover:text-[white] hover:font-semibold">
             
             <a href="#!" onClick={()=>{
+              const confirm = window.confirm('Are you sure you want to logout?')
+              if(!confirm) return
               localStorage.removeItem('isLoggedIn')
               localStorage.removeItem('username')
               localStorage.removeItem('token')

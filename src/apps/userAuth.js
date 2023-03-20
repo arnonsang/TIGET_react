@@ -6,9 +6,13 @@ export default function userAuth(redirect) {
     if(token){
         const requestOptions = {
             method: 'POST',
-            headers: { 'Authorization': 'Bearer ' + token }
+            headers: { 'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json', 
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization'}
         };
-        fetch('http://localhost:3333/auth', requestOptions)
+        fetch('https://oauth.iamickdev.com/auth', requestOptions)
             .then(response => response.json())
             .then(data => {
                 const { status, message , decoded  } = data;

@@ -2,6 +2,7 @@ import * as React from 'react';
 import userAuth from '../../apps/userAuth';
 
 export default function Login() {
+    const [isLoding, setIsLoading] = React.useState(false);
     //checkAuth here
     const form = React.useRef(null)
     React.useEffect(() => {
@@ -14,6 +15,7 @@ export default function Login() {
     }, []);
 
    const handleSubmit = e => {
+    
     e.preventDefault();
     const data = new FormData(form.current);
     console.log({
@@ -21,6 +23,11 @@ export default function Login() {
         password: data.get('password'),
         keepMeSignedIn: data.get('rememberMe')
     });
+    if(data.get('userName') === '' || data.get('password') === ''){
+        alert('Please fill in all the fields.');
+        return;
+    }
+    setIsLoading(true);
      let requestOptions = {
          method: 'POST',
          headers: { 'Content-Type': 'application/json' },
@@ -29,11 +36,16 @@ export default function Login() {
      if(data.get('rememberMe') === 'true'){
          requestOptions = {
              method: 'POST',
-             headers: { 'Content-Type': 'application/json' },
+             headers: { 'Content-Type': 'application/json', 
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+              'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+              
+             },
              body: JSON.stringify({ username: data.get('userName'), password: data.get('password'), keepMeSignedIn:true })
          };
      }
-     fetch('http://localhost:3333/login', requestOptions)
+     fetch('https://oauth.iamickdev.com/login', requestOptions)
          .then(response => response.json())
          .then(data => {
              console.log(data)
@@ -41,19 +53,29 @@ export default function Login() {
                  console.log("Login successful");
                  localStorage.setItem('token', data.token);
                  userAuth(`/`);
+                 setIsLoading(false);
             
              } else {
                  console.log("Unable to login, please try again.");
-                 alert(`Unable to login, please try again.`);
+                 setIsLoading(false);
+                 alert(data.message);
              }
          })
    };
   const outOfService = (feature) => {
     alert(`This ${feature} feature is currently on development, please try another way.`);
   }
+  if(isLoding){
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-tigetgold"></div>
+      </div>
+    )
+  }
+
 
   return (
-    <section className="h-screen">
+    <section className="h-full overflow-scroll">
   <div className="container h-full px-6">
     <div
       className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">

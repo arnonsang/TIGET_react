@@ -1,11 +1,13 @@
 import React from 'react'
 
 function EventCard( {title , desc , date , location , tag, poster , status}) {
+  const isActived = status === 'active' ? 'w-[475px] h-[274px] flex flex-row rounded overflow-hidden shadow-lg bg-gray-600/50 m-4 ' : 'w-[475px] h-[274px] flex flex-row rounded overflow-hidden shadow-lg bg-gray-600/50 m-4 grayscale';
+
   return (
     <a href="/Events">
             <div
-              className="w-[475px] h-[274px] <%= eventData[i].EventStatus == 'active' ? '' : 'filter grayscale' %>  flex flex-row rounded overflow-hidden shadow-lg bg-gray-600/50 m-4">
-              <img width={'255px'} src={poster} alt={title} />
+              className={isActived}>
+              <img className='w-[200px]' src={poster} alt={title} />
               <div className="px-6 py-4">
                 <div className="font-bold text-md mb-2 text-tigetgold">
                   <p>{title}</p>

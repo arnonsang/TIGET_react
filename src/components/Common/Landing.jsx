@@ -17,11 +17,13 @@ const Container = styled.div`
 
 function Home() {
   const logOutHandle = () => {
-    localStorage.removeItem('isLoggedIn')
-    localStorage.removeItem('username')
-    localStorage.removeItem('token')
-    alert('Logged out!')
-    window.location.reload()
+    const confirm = window.confirm('Are you sure you want to logout?')
+              if(!confirm) return
+              localStorage.removeItem('isLoggedIn')
+              localStorage.removeItem('username')
+              localStorage.removeItem('token')
+              alert('Logged out!')
+              window.location.reload()
   }
   const isLoggedIn  = localStorage.getItem('isLoggedIn')
   if (isLoggedIn === 'true') {

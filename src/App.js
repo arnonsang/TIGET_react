@@ -15,17 +15,18 @@ import SignUp from "./components/User/SignUp";
 
 function App() {
   return (
-    < >
+    <>
     <Container>
     <Navbar />
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/Home" element={<Landing />} />
-        <Route path="/Events" element={<Landing />} />
+        <Route path="/Events" element={<Events />} />
         <Route path="/watchOnline" element={<Landing />} />
         <Route path="/Ticket" element={<Landing />} />
         <Route path="/AboutUs" element={<Landing />} />
+        <Route path="/MyTicket" element={<Landing />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="*" element={<h1>404: Not Found</h1>} />
@@ -40,12 +41,13 @@ export default App;
 
 const Container = styled.div`
   background-color: #131313;
-  height: 150vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: between;
-  padding: 0 20px;
-
+  padding: 20px 20px;
+  overflow-x: hidden;
+  overflow-y: scroll;
 `;
 

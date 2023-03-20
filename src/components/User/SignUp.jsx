@@ -3,6 +3,7 @@ import userAuth from '../../apps/userAuth';
 
 export default function SignUp() {
     //checkAuth here
+    const [isLoding, setIsLoading] = React.useState(false);
     const form = React.useRef(null)
     React.useEffect(() => {
     const isLogged = userAuth("/");
@@ -23,8 +24,16 @@ export default function SignUp() {
         fname: data.get('fname'),
         lname: data.get('lname'),
         email: data.get('email'),
-
     });
+    if(data.get('userName') === '' || data.get('password') === '' || data.get('fname') === '' || data.get('lname') === '' || data.get('email') === ''){
+        alert(`Please fill in all the fields.`);
+        return;
+    }
+    if(data.get('password') !== data.get('password2')){
+        alert(`Passwords do not match.`);
+        return;
+    }
+    setIsLoading(true);
      let requestOptions = {
          method: 'POST',
          headers: { 'Content-Type': 'application/json' },
@@ -40,22 +49,28 @@ export default function SignUp() {
      if(data.get('rememberMe') === 'true'){
          requestOptions = {
              method: 'POST',
-             headers: { 'Content-Type': 'application/json' },
+             headers: { 'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials',
+                        'Access-Control-Allow-Credentials': 'true'
+                       },
              body: JSON.stringify({ username: data.get('userName'), password: data.get('password'), keepMeSignedIn:true })
          };
      }
-     fetch('http://localhost:3333/register', requestOptions)
+     fetch('https://oauth.iamickdev.com/register', requestOptions)
          .then(response => response.json())
          .then(data => {
              console.log(data)
              if(data.status === 'ok'){
+                setIsLoading(false);
                  console.log("SignUp successful");
                   alert(`SignUp successful`);
                   window.location.href = '/Login';
-            
              } else {
+                setIsLoading(false);
                  console.log("Unable to SignUp, please try again.");
-                 alert(`Unable to SignUp, please try again.`);
+                 alert(data.message);
              }
          })
    };
@@ -63,8 +78,16 @@ export default function SignUp() {
     alert(`This ${feature} feature is currently on development, please try another way.`);
   }
 
+  if(isLoding){
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-tigetgold"></div>
+      </div>
+    )
+  }
+
   return (
-    <section className="h-full p-2">
+    <section className="h-full p-2 overflow-scroll">
   <div className="container h-full px-6">
     <div
       className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
@@ -151,6 +174,19 @@ export default function SignUp() {
               >Password*
             </label>
           </div>
+          <div className="relative mb-6" data-te-input-wrapper-init>
+            <input
+              type="password"
+              className="peer block min-h-[auto] w-full rounded border valid:border-none border-tigetgold bg-transparent py-[0.32rem] px-3 leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-tigetgold dark:placeholder:text-tigetgold [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+              id="password2"
+              name='password2'
+              placeholder="Confirm Password*" />
+            <label
+              htmlFor="password2"
+              className="pointer-events-none peer-valid:-translate-y-[1.15rem] peer-valid:scale-[0.8] absolute  top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-tigetgold dark:peer-focus:text-tigetgold"
+              >Confirm Password*
+            </label>
+          </div>
 
           <div className="mb-6 flex items-center justify-between">
           <div className="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
@@ -219,4 +255,4 @@ export default function SignUp() {
 </section>
 
   );
-}
+};
