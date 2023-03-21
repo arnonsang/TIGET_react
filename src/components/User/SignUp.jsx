@@ -87,7 +87,7 @@ export default function SignUp() {
   }
 
   return (
-    <section className="h-full p-2 overflow-scroll">
+    <section className="h-full p-2 overflow-y-scroll overflow-x-auto">
   <div className="container h-full px-6">
     <div
       className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">

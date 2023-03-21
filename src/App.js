@@ -10,6 +10,8 @@ import AboutUs from "./components/Common/AboutUs";
 import Landing from "./components/Common/Landing";
 import Login from "./components/User/Login";
 import SignUp from "./components/User/SignUp";
+import LoginAdmin from "./components/admin/Login_Admin";
+import LandingAdmin from "./components/admin/Landing_Admin";
 
 
 
@@ -29,6 +31,9 @@ function App() {
         <Route path="/MyTicket" element={<Landing />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/Register" element={<Landing />} />
+        <Route path="/Admin" element={<LoginAdmin />} />
+        <Route path="/Admin/Landing" element={<LandingAdmin />} />
         <Route path="*" element={<h1>404: Not Found</h1>} />
       </Routes>
     </BrowserRouter>

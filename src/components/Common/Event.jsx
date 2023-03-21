@@ -6,7 +6,7 @@ function Events() {
   const [eventData, setEventData] = React.useState([])
   const [isLoding, setIsLoding] = React.useState(true)
   useEffect(() => {
-    fetch('http://tiget.bysamnorr.proj.iamickdev.com/apis/tigetData', {
+    fetch('https://tiget.bysamnorr.proj.iamickdev.com/apis/tigetData', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -42,19 +42,21 @@ function Events() {
     align-items: center;
     align-content: center;
     gap: 1rem;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
   `
   if(isLoding){
     return (
       <div className="flex justify-center items-center h-screen">
         <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-tigetgold"></div>
+        {/* loading text */}
       </div>
     )
   }
 
   return (
     <Container>
-      <h2 className="text-3xl text-tigetgold font-bold mb-5">
+      <h2 className="text-3xl text-tigetgold  font-bold mb-5">
       Events!
       </h2><br />
       <EventList>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import userAuth from '../../apps/userAuth'
@@ -6,6 +6,7 @@ import logo from '../../assets/images/logo.png'
 
 
 function Navbar() {
+
   const isLoggedIn = localStorage.getItem('isLoggedIn')
   if(isLoggedIn === 'true'){
     const username = localStorage.getItem('username')
