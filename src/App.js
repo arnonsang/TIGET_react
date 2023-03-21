@@ -34,7 +34,7 @@ function App() {
         <Route path="/Register" element={<Landing />} />
         <Route path="/Admin" element={<LoginAdmin />} />
         <Route path="/Admin/Landing" element={<LandingAdmin />} />
-        <Route path="*" element={<h1>404: Not Found</h1>} />
+        <Route path="*" element={<h1 className="text-tigetgold text-8xl">404: Not Found</h1>} />
       </Routes>
     </BrowserRouter>
     <Footer />
