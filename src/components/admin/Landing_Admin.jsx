@@ -1,20 +1,22 @@
 import React from 'react'
 import CardAdmin from './Card_Admin'
+import event from '../../assets/images/event_placeholder.png';
+import ticket from '../../assets/images/ticket_placeholder.png';
+import user from '../../assets/images/user_placeholder.png';
 
 function LandingAdmin() {
 
   const admin = localStorage.getItem('admin')
   return (
     // display all link with card style for admin
-    <div>
-        <h1>Hello {admin}</h1>
-        
-        <CardAdmin title="Manage Event" desc="Manage all event" poster="https://images.unsplash.com/photo-1616161610003-8b2b2b2b2b2b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" link="/ManageEvent"/>
-        <CardAdmin title="Manage User" desc="Manage all user" poster="https://images.unsplash.com/photo-1616161610003-8b2b2b2b2b2b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" link="/ManageUser"/>
-        <CardAdmin title="Manage Ticket" desc="Manage all ticket" poster="https://images.unsplash.com/photo-1616161610003-8b2b2b2b2b2b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" link="/ManageTicket"/>
-    </div>
-
-    
+    <div className='flex flex-col align-middle items-center text-center'><br />
+        <h1 className='text-tigetgold text-3xl mb-4 font-extrabold'>Hello, {admin}</h1>
+        <div className='flex flex-row'>
+            <CardAdmin title="Manage Event" desc="Manage all event" poster={event} link="/ManageEvent"/>
+            <CardAdmin title="Manage User" desc="Manage all user" poster={user} link="/ManageUser"/>
+            <CardAdmin title="Manage Ticket" desc="Manage all ticket" poster={ticket} link="/ManageTicket"/>
+        </div>
+      </div>
   )
 }
 
