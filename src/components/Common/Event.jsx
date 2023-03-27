@@ -63,9 +63,11 @@ function Events() {
       {eventData.map((event, i) => {
         return (
           <EventCard
+            key={"EventID:"+i+"_"+eventData[i].EventKeyName}
             title={eventData[i].EventTitle}
             desc={eventData[i].EventDesc}
             date={eventData[i].EventDate}
+            keyname={eventData[i].EventKeyName}
             location={eventData[i].EventLocation}
             tag={eventData[i].EventTag}
             poster={eventData[i].EventPoster}

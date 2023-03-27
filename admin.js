@@ -5,7 +5,7 @@ const dovent = require("dotenv");
 dovent.config();
 
 const bcrypt = require("bcrypt");
-const saltRounds = process.env['saltRound']
+const saltRounds = 10
 
 const cors = require("cors");
 appLoginAdmin.use(cors());
@@ -99,7 +99,8 @@ appLoginAdmin.post("/register", (req, res) => {
 });
 
 appLoginAdmin.post("/auth", (req, res) => {
-    const { token } = req.body;
+    const token = req.headers["authorization"].split(" ")[1];
+    console.log("Admin Auth => " , token)
     if (token) {
         jwt.verify(token, tigetSecret, (err, decoded) => {
             if (err) {
@@ -113,4 +114,26 @@ appLoginAdmin.post("/auth", (req, res) => {
     }
 });
 
+appLoginAdmin.get("/user", (req, res) => {
+  const token = req.headers["authorization"].split(" ")[1];
+    console.log("Admin Auth => " , token)
+    if (token) {
+        jwt.verify(token, tigetSecret, (err, decoded) => {
+            if (err) {
+                res.json({ status: "error", message: "Token is not valid" });
+            } else {
+              dbEvent.getAllUser((err, rows) => {
+                if (err) {
+                    res.json({ status: "error", message: "Error when connecting the database" });return;
+                } else {
+                    res.json({ status: "ok", message: "Get all user successfully", data: rows });return;
+                }
+                });
+            }
+        });
+    } else {
+        res.json({ status: "error", message: "Auth token is not supplied" });
+    }
+})
 module.exports = { appLoginAdmin };
+
