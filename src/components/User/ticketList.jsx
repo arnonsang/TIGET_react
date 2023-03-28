@@ -1,9 +1,14 @@
 import React from 'react'
+import UserInfo from './userInfo'
 
-function ticketList() {
+function TicketList() {
   return (
-    <h1>Ticket List</h1>
+    <>
+        <h1>Ticket List</h1>
+      <UserInfo />
+    </>
+
   )
 }
 
-export default ticketList
+export default TicketList

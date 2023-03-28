@@ -19,7 +19,7 @@ export default function userAuth(redirect) {
                 if(data.status === 'ok'){
                     console.log(`Auth status => ${status} : ${message} => Username: ${decoded.username}`);
                     localStorage.setItem('username', decoded.username);
-                    localStorage.setItem('isLoggedIn', 'true');
+                    localStorage.setItem('isLoggedIn', true);
                     console.log("Redirecting to => ", redirect);
                     if(redirect !== '#') window.location.href = redirect;
                     return true;
@@ -27,7 +27,7 @@ export default function userAuth(redirect) {
                     console.log(`Auth status => ${status} : ${message}`);
                     localStorage.removeItem('token');
                     localStorage.removeItem('username');
-                    localStorage.setItem('isLoggedIn', 'false');
+                    localStorage.setItem('isLoggedIn', true);
                     return false;
                 }
             });

@@ -30,13 +30,13 @@ function Home() {
     const username = localStorage.getItem('username')
     return (  
       <Container>
-        <h1 className="text-[183.883px] font-bold text-tigetgold2 m-4 mt-0 p-4 pb-0 align-center">
+        <h1 className="text-9xl font-bold text-tigetgold2 m-4 mt-0 p-4 pb-0 align-center">
           TIGET
         </h1>
-        <p className="text-[36px] mb-[20px] text-tigetgold">
-          Hello, {username}!
+        <p className="text-3xl mb-[20px] text-tigetgold">
+          Welcome , {username}!
         </p>
-        <p className="w-[894px] text-[23px] text-[white] p-4 text-center">
+        <p className=" text-xl text-[white] p-4 text-center">
           Welcome to TIGET! We are currently under development.
           Wish you a great day!
         </p>
@@ -53,14 +53,14 @@ function Home() {
 
   return (
     <Container>
-      <h1 className="text-[183.883px] font-bold text-tigetgold2 m-4 mt-0 p-4 pb-0 align-center">
+      <h1 className="text-9xl font-bold text-tigetgold2 m-4 mt-0 p-4 pb-0 align-center">
         TIGET
       </h1>
       
-      <p className="text-[36px] mb-[20px] text-tigetgold">
+      <p className="text-3xl mb-[20px] text-tigetgold">
         We are currently under development.
       </p>
-      <p className="w-[894px] text-[23px] text-[white] p-4 text-center">
+      <p className="text-xl text-[white] p-4 text-center">
         You can register for our newsletter to get the latest updates.
       </p>
       <button className="bg-tigetgold text-black font-bold mt-6 py-2 px-4 rounded-full"

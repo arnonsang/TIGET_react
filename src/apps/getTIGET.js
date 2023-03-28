@@ -1,7 +1,16 @@
 // get https://tiget.bysamnorr.proj.iamickdev.com/apis/getEvent/tiget1596
 
-function getEventData() {
-  return fetch("https://tiget.bysamnorr.proj.iamickdev.com/apis/getEvent/tiget1596")
+const getOptions = {
+  method: 'GET',
+  headers: { 
+  'Content-Type': 'application/json', 
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+  'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization'}
+};
+
+async function getEventData() {
+  return await fetch("https://tiget.bysamnorr.proj.iamickdev.com/apis/getEvent/tiget1596", getOptions)
     .then((response) => response.json())
     .then((data) => {
       return data;
@@ -13,8 +22,8 @@ function getEventData() {
 
 //get https://tiget.bysamnorr.proj.iamickdev.com/apis/tigetTicketData/tiget1596
 
-function getTicketData() {
-  return fetch("https://tiget.bysamnorr.proj.iamickdev.com/apis/tigetTicketData/tiget1596")
+async function getTicketData() {
+  return await fetch("https://tiget.bysamnorr.proj.iamickdev.com/apis/tigetTicketData/tiget1596", getOptions)
     .then((response) => response.json())
     .then((data) => {
       return data;
@@ -26,7 +35,7 @@ function getTicketData() {
 
 // get https://oauth.iamickdev.com/admin/users
 
-function getUserData() {
+async function getUserData() {
   const token = localStorage.getItem('adminToken');
   const requestOptions = {
     method: 'GET',
@@ -36,7 +45,7 @@ function getUserData() {
     'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
     'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization'}
   };
-  return fetch("https://oauth.iamickdev.com/admin/users", requestOptions)
+  return await fetch("https://oauth.iamickdev.com/admin/users", requestOptions)
     .then((response) => response.json())
     .then((data) => {
       return data;

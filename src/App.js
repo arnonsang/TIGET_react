@@ -10,6 +10,10 @@ import AboutUs from "./components/Common/AboutUs";
 import Landing from "./components/Common/Landing";
 import Login from "./components/User/Login";
 import SignUp from "./components/User/SignUp";
+import TicketList from "./components/User/ticketList";
+
+import NavBarRes from "./components/Common/NavbarRes";
+
 import LoginAdmin from "./components/admin/Login_Admin";
 import LandingAdmin from "./components/admin/Landing_Admin";
 
@@ -19,7 +23,7 @@ function App() {
   return (
     <>
     <Container>
-    <Navbar />
+    <NavBarRes />
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
@@ -28,10 +32,10 @@ function App() {
         <Route path="/watchOnline" element={<Landing />} />
         <Route path="/Ticket" element={<Landing />} />
         <Route path="/AboutUs" element={<Landing />} />
-        <Route path="/MyTicket" element={<Landing />} />
+        <Route path="/MyTicket" element={<TicketList />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/SignUp" element={<SignUp />} />
-        <Route path="/Register" element={<Landing />} />
+        <Route path="/Register" element={<SignUp />} />
         <Route path="/Admin" element={<LoginAdmin />} />
         <Route path="/Admin/Landing" element={<LandingAdmin />} />
         <Route path="*" element={<h1 className="text-tigetgold text-8xl py-16">404: Not Found</h1>} />

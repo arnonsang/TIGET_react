@@ -49,7 +49,7 @@ function Navbar() {
               window.location.reload()
             }}>Logout</a>
             </li>
-            <img src={logo} alt="userimg" className='rounded-xl w-8' />
+            <img src={"https://api.lorem.space/image/face?w=150&h=150"} alt="userimg" className='rounded-xl w-8' />
 
           </ul>
         </div>
