@@ -27,9 +27,7 @@ export default function adminAuth(redirect) {
                     return true;
                 } else {
                     console.log(`Auth status => ${status} : ${message}`);
-                    localStorage.removeItem('adminToken');
-                    localStorage.removeItem('admin');
-                    localStorage.setItem('adminLoggedIn', false);
+                    localStorage.clear();
                     return false;
                 }
             });

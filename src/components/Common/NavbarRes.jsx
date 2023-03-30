@@ -82,11 +82,11 @@ export default function NavBarRes() {
                   <a href="/Events">Events</a>
                 </li>
                 <li className="text-tigetgold font-normal hover:text-[white] hover:font-semibold">
-                  <a href="/My Ticket">My Ticket</a>
+                  <a href="/MyTicket">My Ticket</a>
                 </li>
               </ul>
 
-              <div className="mt-3 space-y-2 xl:hidden lg:inline-block">
+              <div className="mt-3 space-y-2 xl:hidden lg:hidden">
                 <a
                   href="/MyTicket"
                   className="inline-block w-full px-4 py-2 text-center text-white bg-tigetgold2 rounded-md shadow hover:bg-gray-800"

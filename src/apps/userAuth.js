@@ -14,20 +14,23 @@ export default function userAuth(redirect) {
         };
         fetch('https://oauth.iamickdev.com/auth', requestOptions)
             .then(response => response.json())
-            .then(data => {
-                const { status, message , decoded  } = data;
-                if(data.status === 'ok'){
+            .then(res => {
+                const { status, message , decoded, data  } = res;
+                const { username, email, fname, lname, role } = data;
+                const userData = { username, email, fname, lname, role };
+                if(status === 'ok'){
                     console.log(`Auth status => ${status} : ${message} => Username: ${decoded.username}`);
                     localStorage.setItem('username', decoded.username);
                     localStorage.setItem('isLoggedIn', true);
+                    localStorage.setItem('userData', JSON.stringify(userData));
                     console.log("Redirecting to => ", redirect);
                     if(redirect !== '#') window.location.href = redirect;
+
+
                     return true;
                 } else {
                     console.log(`Auth status => ${status} : ${message}`);
-                    localStorage.removeItem('token');
-                    localStorage.removeItem('username');
-                    localStorage.setItem('isLoggedIn', true);
+                    localStorage.clear();
                     return false;
                 }
             });

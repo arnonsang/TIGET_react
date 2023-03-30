@@ -2,7 +2,7 @@ import * as React from 'react';
 import userAuth from '../../apps/userAuth';
 
 export default function Login() {
-    const [isLoding, setIsLoading] = React.useState(false);
+    const [isLoading, setIsLoading] = React.useState(false);
     //checkAuth here
     const form = React.useRef(null)
     React.useEffect(() => {
@@ -65,7 +65,7 @@ export default function Login() {
   const outOfService = (feature) => {
     alert(`This ${feature} feature is currently on development, please try another way.`);
   }
-  if(isLoding){
+  if(isLoading){
     return (
       <div className="flex justify-center items-center h-screen">
         <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-tigetgold"></div>

@@ -28,6 +28,8 @@ function Home() {
   const isLoggedIn  = localStorage.getItem('isLoggedIn')
   if (isLoggedIn === 'true') {
     const username = localStorage.getItem('username')
+    const userData = localStorage.getItem('userData');
+    console.log(userData);
     return (  
       <Container>
         <h1 className="text-9xl font-bold text-tigetgold2 m-4 mt-0 p-4 pb-0 align-center">
