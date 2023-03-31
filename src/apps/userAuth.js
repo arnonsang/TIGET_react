@@ -16,9 +16,9 @@ export default function userAuth(redirect) {
             .then(response => response.json())
             .then(res => {
                 const { status, message , decoded, data  } = res;
-                const { username, email, fname, lname, role } = data;
-                const userData = { username, email, fname, lname, role };
                 if(status === 'ok'){
+                    const { username, email, fname, lname, role } = data;
+                    const userData = { username, email, fname, lname, role };
                     console.log(`Auth status => ${status} : ${message} => Username: ${decoded.username}`);
                     localStorage.setItem('username', decoded.username);
                     localStorage.setItem('isLoggedIn', true);
