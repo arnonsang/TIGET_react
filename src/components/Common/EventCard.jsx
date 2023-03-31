@@ -5,7 +5,7 @@ function EventCard(props) {
   const isActiveLink = props.status === 'active' ? "/Events/"+props.keyname.trim() : "/Events";
 
   return (
-    <a href={isActiveLink} key={props.key} id={props.key}>
+    <a href={isActiveLink} key={props.keyname} id={props.key}>
             <div
               className={isActived}>
               <img className='w-[200px]' src={props.poster} alt={props.title} />

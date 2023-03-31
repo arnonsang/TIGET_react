@@ -1,8 +1,10 @@
 import React from 'react'
+import styled from 'styled-components'
+
 import UserInfo from './userInfo'
 import TicketCard from './ticketCard'
 
-function TicketList() {
+export default function TicketList() {
   const mockupTicketData = {
     status: 'ok',
     data: [
@@ -51,7 +53,7 @@ function TicketList() {
   }
   return (
     <>
-  
+      <Container>
       <UserInfo />
       <div className="flex flex-wrap justify-center gap-8 items-center">
       {
@@ -72,9 +74,28 @@ function TicketList() {
         })
       }
       </div>
+      </Container>
     </>
 
   )
 }
 
-export default TicketList
+
+
+const Container = styled.div`
+background-color: #131313;
+padding: 5rem;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+align-content: center;
+gap: 1rem;
+overflow-y: scroll;
+overflow-x: hidden;
+::-webkit-scrollbar {
+  display: none;
+}
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+`

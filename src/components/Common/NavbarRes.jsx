@@ -1,6 +1,6 @@
 import { useState } from "react";
 import logo from "../../assets/images/logo.png";
-import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import userAuth from "../../apps/userAuth";
 
 export default function NavBarRes() {
@@ -14,6 +14,22 @@ export default function NavBarRes() {
     }
   };
   window.addEventListener("scroll", changeBackground);
+
+  const activeLinkTextColor = (thisLink) => {
+    let myLink = thisLink;
+    if (thisLink === "/") {
+      myLink = "/home";
+    }
+    const nowLink = window.location.pathname;
+    if (nowLink.toLowerCase() === myLink.toLowerCase()) {
+      return "text-white text-lg  font-bold border-b-2 border-white border-opacity-90 border-shadow ";
+    } else {
+      return "text-tigetgold";
+    }
+  };
+
+
+  
 
   if (isLoggedIn === "true") {
     const username = localStorage.getItem("username");
@@ -72,16 +88,16 @@ export default function NavBarRes() {
               }`}
             >
               <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                <li className="text-tigetgold font-normal hover:text-[white] hover:font-semibold">
-                  <a href="/Home">Home</a>
+                <li className={"font-normal hover:text-[white] hover:font-semibold "+activeLinkTextColor("/Home")}>
+                  <a href="/">Home</a>
                 </li>
-                <li className="text-tigetgold font-normal hover:text-[white] hover:font-semibold">
+                <li className={"font-normal hover:text-[white] hover:font-semibold "+activeLinkTextColor("/AboutUs")}>
                   <a href="/AboutUs">About us</a>
                 </li>
-                <li className="text-tigetgold font-normal hover:text-[white] hover:font-semibold">
+                <li className={"font-normal hover:text-[white] hover:font-semibold " +activeLinkTextColor("/Events")}>
                   <a href="/Events">Events</a>
                 </li>
-                <li className="text-tigetgold font-normal hover:text-[white] hover:font-semibold">
+                <li className={"font-normal hover:text-[white] hover:font-semibold " +activeLinkTextColor("/MyTicket")}>
                   <a href="/MyTicket">My Ticket</a>
                 </li>
               </ul>
@@ -141,8 +157,8 @@ export default function NavBarRes() {
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <a href="/">
-              <h2 className="text-3xl font-bold text-tigetgold p-6 text-center">
-                TIGET
+              <h2 className="text-tigetgold text-3xl font-bold p-6 text-center ">
+                TIGET 
               </h2>
             </a>
             <div className="md:hidden">
@@ -190,23 +206,24 @@ export default function NavBarRes() {
             }`}
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-              <li className="text-tigetgold font-normal hover:text-[white] hover:font-semibold">
-                <a href="/Home">Home</a>
-              </li>
-              <li className="text-tigetgold font-normal hover:text-[white] hover:font-semibold">
-                <a href="/Events">Events</a>
-              </li>
-              <li className="text-tigetgold font-normal hover:text-[white] hover:font-semibold">
+                <li className={"font-normal hover:text-[white] hover:font-semibold "+activeLinkTextColor("/Home")}>
+                  <a href="/">Home</a>
+                </li>
+
+                <li className={"font-normal hover:text-[white] hover:font-semibold " +activeLinkTextColor("/Events")}>
+                  <a href="/Events">Events</a>
+                </li>
+                <li className={"font-normal hover:text-[white] hover:font-semibold " +activeLinkTextColor("/Ticket")}>
+                  <a href="/Ticket">Verify Ticket</a>
+                </li>
+              
+              <li className={"text-tigetgold font-normal hover:text-[white] hover:font-semibold "+activeLinkTextColor("/watchOnline")}>
                 <a href="/watchOnline">Watch Live</a>
               </li>
-              <li className="text-tigetgold font-normal hover:text-[white] hover:font-semibold">
-                <a href="/Ticket">Check Ticket</a>
-              </li>
-              <li className="text-tigetgold font-normal hover:text-[white] hover:font-semibold">
-                <a href="/AboutUs">About us</a>
-              </li>
+              <li className={"font-normal hover:text-[white] hover:font-semibold "+activeLinkTextColor("/AboutUs")}>
+                  <a href="/AboutUs">About us</a>
+                </li>
             </ul>
-
             <div className="mt-3 space-y-2 xl:hidden lg:hidden">
               <a
                 href="/Login"

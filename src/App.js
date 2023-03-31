@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Link, BrowserRouter, Routes, Route  } from "react-router-dom";
 import userAuth from "./apps/userAuth";
 
 import styled from 'styled-components';
@@ -29,13 +29,11 @@ function App() {
   const [loading, setLoading] = React.useState(true);
   React.useEffect(() => {
     userAuth();
-  }, []);
-
-  React.useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 200);
   }, []);
+
 
   if (loading) {
     return <Loading />;
@@ -69,6 +67,7 @@ function App() {
 }
 export default App;
 
+
 const Container = styled.div`
   background-color: #131313;
   height: 100vh;
@@ -78,7 +77,7 @@ const Container = styled.div`
   justify-content: between;
   padding: 20px 20px;
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: scroll;
 `;
 
 //hide scrollbar all browsers

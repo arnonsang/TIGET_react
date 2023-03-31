@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+
+//import navbar and navlink from react router dom
+import { NavLink } from 'react-router-dom'
 import userAuth from '../../apps/userAuth'
 import logo from '../../assets/images/logo.png'
 
