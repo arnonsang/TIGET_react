@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import EventCard from './EventCard'
 import styled from 'styled-components'
+import Footer from './Footer'
 
-function Events() {
+export default function Events() {
   const [eventData, setEventData] = React.useState([])
   const [isLoding, setIsLoding] = React.useState(true)
   useEffect(() => {
@@ -23,28 +24,6 @@ function Events() {
       })
   }, []);
 
-  const EventList = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    gap: 1rem;
-  `
-
-  const Container = styled.div`
-    background-color: #131313;
-    padding: 5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    gap: 1rem;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  `
   if(isLoding){
     return (
       <div className="flex justify-center items-center h-screen">
@@ -76,9 +55,43 @@ function Events() {
         )
       })}
       </EventList>
+      
     </Container>
+    
+    
+    
     
   )
 }
 
-export default Events
+
+
+
+
+const EventList = styled.div`
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+align-content: center;
+gap: 1rem;
+`
+
+const Container = styled.div`
+background-color: #131313;
+padding: 5rem;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+align-content: center;
+gap: 1rem;
+overflow-y: scroll;
+overflow-x: hidden;
+::-webkit-scrollbar {
+  display: none;
+}
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+`

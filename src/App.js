@@ -42,31 +42,29 @@ function App() {
   }
 
   return (
-    <>
-    <Container>
-    <NavBarRes />
-    <ContentSection>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/Home" element={<Landing />} />
-        <Route path="/Events" element={<Events />} />
-        <Route path="/watchOnline" element={<Landing />} />
-        <Route path="/Ticket" element={<Landing />} />
-        <Route path="/AboutUs" element={<Landing />} />
-        <Route path="/MyTicket" element={<TicketList />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/SignUp" element={<SignUp />} />
-        <Route path="/Register" element={<SignUp />} />
-        <Route path="/Admin" element={<LoginAdmin />} />
-        <Route path="/Admin/Landing" element={<LandingAdmin />} />
-        <Route path="*" element={<h1 className="text-tigetgold text-8xl py-16">404: Not Found</h1>} />
-      </Routes>
-    </BrowserRouter>
-    </ContentSection>
-    <Footer />
-    </Container>
-    </>
+    <><Container>
+      <NavBarRes />
+      <ContentSection>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/Home" element={<Landing />} />
+            <Route path="/Events" element={<Events />} />
+            <Route path="/watchOnline" element={<Landing />} />
+            <Route path="/Ticket" element={<Landing />} />
+            <Route path="/AboutUs" element={<Landing />} />
+            <Route path="/MyTicket" element={<TicketList />} />
+            <Route path="/Login" element={<Login />} />
+            <Route path="/SignUp" element={<SignUp />} />
+            <Route path="/Register" element={<SignUp />} />
+            <Route path="/Admin" element={<LoginAdmin />} />
+            <Route path="/Admin/Landing" element={<LandingAdmin />} />
+            <Route path="*" element={<h1 className="text-tigetgold text-8xl py-16">404: Not Found</h1>} />
+          </Routes>
+        </BrowserRouter>
+      </ContentSection>
+
+    </Container><Footer /></>
   );
 }
 export default App;
@@ -80,9 +78,10 @@ const Container = styled.div`
   justify-content: between;
   padding: 20px 20px;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: hidden;
 `;
 
+//hide scrollbar all browsers
 const ContentSection = styled.div`
   width: 100%;
   height: 100%;
@@ -93,6 +92,11 @@ const ContentSection = styled.div`
   padding: 20px 20px;
   overflow-x: hidden;
   overflow-y: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 `;
 
 
