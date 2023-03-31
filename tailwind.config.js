@@ -13,6 +13,7 @@ module.exports = {
         clifford: "#da373d",
         tigetgold: "#c09e6b",
         tigetgold2: "#c09e6b",
+        tigetblack: "#131313",
         tigetgoldLight: "#eee4d4",
       },
     },

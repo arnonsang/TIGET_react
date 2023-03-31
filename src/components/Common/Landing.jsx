@@ -19,9 +19,7 @@ function Home() {
   const logOutHandle = () => {
     const confirm = window.confirm('Are you sure you want to logout?')
               if(!confirm) return
-              localStorage.removeItem('isLoggedIn')
-              localStorage.removeItem('username')
-              localStorage.removeItem('token')
+              localStorage.clear();
               alert('Logged out!')
               window.location.reload()
   }

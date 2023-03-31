@@ -1,5 +1,10 @@
+import * as React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import userAuth from "./apps/userAuth";
+
 import styled from 'styled-components';
+
+import Loading from "./components/Loading";
 import Navbar from './components/Common/Navbar';
 import Footer from './components/Common/Footer';
 import Home from "./components/Common/Home";
@@ -19,11 +24,28 @@ import LandingAdmin from "./components/admin/Landing_Admin";
 
 
 
+
 function App() {
+  const [loading, setLoading] = React.useState(true);
+  React.useEffect(() => {
+    userAuth();
+  }, []);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <>
     <Container>
     <NavBarRes />
+    <ContentSection>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
@@ -41,6 +63,7 @@ function App() {
         <Route path="*" element={<h1 className="text-tigetgold text-8xl py-16">404: Not Found</h1>} />
       </Routes>
     </BrowserRouter>
+    </ContentSection>
     <Footer />
     </Container>
     </>
@@ -59,4 +82,17 @@ const Container = styled.div`
   overflow-x: hidden;
   overflow-y: scroll;
 `;
+
+const ContentSection = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 20px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+`;
+
 

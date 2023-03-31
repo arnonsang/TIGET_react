@@ -25,9 +25,8 @@ export default function userAuth(redirect) {
                     localStorage.setItem('userData', JSON.stringify(userData));
                     console.log("Redirecting to => ", redirect);
                     if(redirect !== '#') window.location.href = redirect;
-
-
                     return true;
+                    
                 } else {
                     console.log(`Auth status => ${status} : ${message}`);
                     localStorage.clear();
