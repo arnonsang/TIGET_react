@@ -21,6 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+yarn.lock
 
 # firebase config
 firebase.json
@@ -30,3 +31,4 @@ firebase-debug.log
 /.firebaserc
 /.firebase
 /build
+

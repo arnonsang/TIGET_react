@@ -13,7 +13,7 @@ export default function NavBarRes() {
       setNavbar(false);
     }
   };
-  window.addEventListener("scroll", changeBackground);
+  // window.addEventListener("scroll", changeBackground);
 
   const activeLinkTextColor = (thisLink) => {
     let myLink = thisLink;

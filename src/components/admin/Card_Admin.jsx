@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function CardAdmin( {title , desc, poster, link}) {
+function CardAdmin( {title , desc, poster, link} ) {
 
   return (
     <a href={link}>

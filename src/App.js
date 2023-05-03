@@ -48,8 +48,8 @@ function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/Home" element={<Landing />} />
             <Route path="/Events" element={<Events />} />
-            <Route path="/watchOnline" element={<Landing />} />
-            <Route path="/Ticket" element={<Landing />} />
+            <Route path="/watchOnline" element={<WatchOnline />} />
+            <Route path="/Ticket" element={<Ticket />} />
             <Route path="/AboutUs" element={<Landing />} />
             <Route path="/MyTicket" element={<TicketList />} />
             <Route path="/Login" element={<Login />} />

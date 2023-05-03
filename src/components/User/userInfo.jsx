@@ -26,15 +26,16 @@ export default function UserInfo() {
   const fullName = `${fname.trim()} ${lname.trim()}`;
   return (
     //create user info banner to display fullname username email and profile picture styling with tailwind css
-    <div className="flex flex-row items-center justify-center w-full h-64 bg-transparent border border-tigetgold">
+    <div className="flex flex-row items-center justify-center self-center w-full h-64 bg-transparent border border-tigetgold">
       <div className="flex flex-col items-center justify-center w-32 h-32 m-8 bg-white rounded-full">
-        <img className="w-32 h-32 rounded-full border border-tigetgold" src="https://api.lorem.space/image/face?w=150&h=150" alt="profile" />
+        <img className="w-32 h-32 rounded-sm border border-tigetgold" src="https://placeholder.pics/svg/150x150/291F00/FFCE00-000000" alt="profile" />
       </div>
       <div className="flex flex-col items-left justify-center w-full h-32">
         <h1 className="text-2xl font-bold text-tigetgold">Full Name : {fullName}</h1>
         <h2 className="text-xl font-bold text-tigetgold">Username : {username}</h2>
         <h3 className="text-xl font-bold text-tigetgold">Email : {email}</h3>
       </div>
+      
     </div>
 
 
