@@ -2,12 +2,98 @@ import React from 'react'
 import styled from 'styled-components'
 
 function ManageEventCreate() {
+
+    document.addEventListener("submit", (e) => {
+        e.preventDefault()
+        const EventName = document.getElementById('EventName').value
+        const EventShortName = document.getElementById('EventShortName').value
+        const EventDescription = document.getElementById('EventDescription').value
+        const EventPoster = document.getElementById('EventPoster').value
+        const EventCoordinators = document.getElementById('EventCoordinators').value
+        const EventVenue = document.getElementById('EventVenue').value
+        const EventDate = document.getElementById('EventDate').value
+        const EventTime = document.getElementById('EventTime').value
+        const EventType = document.getElementById('EventType').value
+        const EventTag = document.getElementById('EventTag').value
+        const EventAvailable = document.getElementById('EventAvailable').value
+        const EventLiveStreaming = document.getElementById('EventLiveStreaming').value
+
+        if(EventType === 'Online'){
+            fetch('https://oauth.iamickdev.com/tiget/createEvent', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                    },
+                    body: JSON.stringify({
+                        EventName: EventName,
+                        EventShortName: EventShortName,
+                        EventDescription: EventDescription,
+                        EventPoster: EventPoster,
+                        EventCoordinators: EventCoordinators,
+                        EventVenue: EventVenue,
+                        EventDate: EventDate,
+                        EventTime: EventTime,
+                        EventType: EventType,
+                        EventTag: EventTag,
+                        EventAvailable: EventAvailable,
+                        EventLiveStreaming: EventLiveStreaming
+                    })
+                    })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data)
+                    if(data.status === 'ok'){
+                        alert('Event created successfully!')
+                        window.location.href = '/admin/Landing'
+                    }else{
+                        alert('Unable to create event, please try again.')
+                    }
+                })
+        }else{
+            fetch('https://oauth.iamickdev.com/tiget/createEvent', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                    },
+                    body: JSON.stringify({
+                        EventName: EventName,
+                        EventShortName: EventShortName,
+                        EventDescription: EventDescription,
+                        EventPoster: EventPoster,
+                        EventCoordinators: EventCoordinators,
+                        EventVenue: EventVenue,
+                        EventDate: EventDate,
+                        EventTime: EventTime,
+                        EventType: EventType,
+                        EventTag: EventTag,
+                    })
+                    })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data)
+                    if(data.status === 'ok'){
+                        alert('Event created successfully!')
+                        window.location.href = '/admin/Landing'
+                    }else{
+                        alert('Unable to create event, please try again.')
+                    }
+                })
+        }
+    })
+    
+
   return (
     <Container>
         {/* Create new event */}
         <div className="flex flex-col justify-left items-left gap-2">
             <h1 className="text-3xl font-bold text-tigetgold">Create new event</h1>
-            <form action="https://oauth.iamickdev.com/tiget/createEvent" method="post" className="flex flex-col justify-left items-left gap-2">
+            <form className="flex flex-col justify-left items-left gap-2">
                 <input type="text" name="EventName" id="" placeholder="Event Name" className="w-[35rem] h-[3rem] p-8 text-tigetgold text-2xl bg-transparent border-solid border-[5px] border-tigetgold rounded-full placeholder-tigetgold"></input>
                 <input type="text" name="EventShortName" id="" placeholder="Event Short Name" className="w-[35rem] h-[3rem] p-8 text-tigetgold text-2xl bg-transparent border-solid border-[5px] border-tigetgold rounded-full placeholder-tigetgold"></input>
                 <input type="text" name="EventDescription" id="" placeholder="Event Description" className="w-[35rem] h-[3rem] p-8 text-tigetgold text-2xl bg-transparent border-solid border-[5px] border-tigetgold rounded-full placeholder-tigetgold"></input>
