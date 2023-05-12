@@ -1,5 +1,5 @@
 
-export default function userAuth(redirect) {
+function userAuth(redirect) {
     if(!redirect) redirect = '#';
     console.log("Authenticating user... => ", localStorage.getItem('token') ? "true" : "false");
     const token = localStorage.getItem('token');
@@ -37,3 +37,5 @@ export default function userAuth(redirect) {
         return false;
     }
 }
+
+module.exports = userAuth;

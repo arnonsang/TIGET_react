@@ -1,5 +1,5 @@
 
-export default function adminAuth(redirect) {
+function adminAuth(redirect) {
     if(!redirect) redirect = '#';
     console.log("Authenticating Admin... => ", localStorage.getItem('adminToken') ? "true" : "false");
     const token = localStorage.getItem('adminToken');
@@ -35,3 +35,5 @@ export default function adminAuth(redirect) {
         return false;
     }
 }
+
+module.exports = adminAuth;

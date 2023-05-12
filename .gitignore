@@ -7,6 +7,7 @@
 
 # testing
 /coverage
+.cache
 
 # production
 /build
@@ -30,5 +31,5 @@ firebase-debug.log
 .firebase
 /.firebaserc
 /.firebase
-/build
+
 

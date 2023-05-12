@@ -7,7 +7,7 @@ export default function Events() {
   const [eventData, setEventData] = React.useState([])
   const [isLoding, setIsLoding] = React.useState(true)
   useEffect(() => {
-    fetch('https://tiget.bysamnorr.proj.iamickdev.com/apis/tigetData', {
+    fetch('https://oauth.iamickdev.com/tiget/getAllEvent', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -18,8 +18,8 @@ export default function Events() {
         })
       .then((response) => response.json())
       .then((data) => {
-        setEventData(data)
-        console.log('Event is ready!')
+        setEventData(data.data)
+        console.log('Event is ready!', data.data)
         setIsLoding(false)
       })
   }, []);
@@ -32,25 +32,42 @@ export default function Events() {
       </div>
     )
   }
-
+  
+  /*
+  [{
+  "_id": "645dfe574c3b52fac3a88f57",
+  "EventCode": "iPVA7lK9af",
+  "EventType": "Online",
+  "EventName": "Sample Event 3",
+  "EventShortName": "SAMPLEEVENT3",
+  "EventDate": "2021-07-31",
+  "EventTime": "12:00:00",
+  "EventDescription": "This is a sample event",
+  "EventPoster": "https://i.imgur.com/3QXm2oF.jpg",
+  "EventCoordinators": "Sample Coordinator 1, Sample Coordinator 2",
+  "EventAvailable": null,
+  "EventLiveStreaming": null
+}]
+  */
   return (
     <Container>
       <h2 className="text-3xl text-tigetgold  font-bold mb-5">
-      Events!
+      {eventData.length} Events! 
       </h2><br />
       <EventList>
       {eventData.map((event, i) => {
         return (
           <EventCard
-            key={"EventID:"+i+"_"+eventData[i].EventKeyName}
-            title={eventData[i].EventTitle}
-            desc={eventData[i].EventDesc}
-            date={eventData[i].EventDate}
-            keyname={eventData[i].EventKeyName}
-            location={eventData[i].EventLocation}
-            tag={eventData[i].EventTag}
-            poster={eventData[i].EventPoster}
-            status={eventData[i].EventStatus}
+            key={event._id}
+            title={event.EventName}
+            desc={event.EventDescription}
+            date={event.EventDate}
+            keyname={event.EventCode}
+            location={event.EventVenue}
+            tag={event.EventTag}
+            type={event.EventType}
+            poster={event.EventPoster}
+            status={event.EventStatus}
           />
         )
       })}

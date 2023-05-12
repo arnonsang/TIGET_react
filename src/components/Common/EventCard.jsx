@@ -1,8 +1,14 @@
 import React from 'react'
 
 function EventCard(props) {
+  let url = "";
+  if(props.type.toLowerCase() === "offline"){
+    url = "/Events/offline/"+props.keyname.trim();
+  }else{
+    url = "/Events/online/"+props.keyname.trim();
+  }
   const isActived = props.status === 'active' ? 'w-[475px] h-[274px] flex flex-row rounded overflow-hidden shadow-lg bg-gray-600/50 m-4 ' : 'w-[475px] h-[274px] flex flex-row rounded overflow-hidden shadow-lg bg-gray-600/50 m-4 grayscale';
-  const isActiveLink = props.status === 'active' ? "/Events/"+props.keyname.trim() : "/Events";
+  const isActiveLink = props.status === 'active' ? url : "/Events";
 
   return (
     <a href={isActiveLink} key={props.keyname} id={props.key}>
