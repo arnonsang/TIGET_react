@@ -26,6 +26,7 @@ import EventOffline from "./components/Common/EventOffline";
 import EventOfflineSeat from "./components/Common/EventOfflineSeat";
 import HomeSearch from "./components/Common/HomeSearch";
 import EventsSearch from "./components/Common/EventSearch";
+import ManageEventCreate from "./components/admin/ManageEventCreate";
 
 
 
@@ -62,6 +63,7 @@ function App() {
             <Route path="/SignUp" element={<SignUp />} />
             <Route path="/Register" element={<SignUp />} />
             <Route path="/Admin" element={<LoginAdmin />} />
+            <Route path="/createEvent" element={<ManageEventCreate />} />
             {/* event with event code in params */}
             <Route path="/Events/offline/:eventCode" element={<EventOffline/>} />
             <Route path="/Seat" element={<EventOfflineSeat />} />
