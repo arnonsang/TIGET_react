@@ -24,6 +24,11 @@ function Home() {
               window.location.reload()
   }
   const isLoggedIn  = localStorage.getItem('isLoggedIn')
+  document.addEventListener("submit", (e) => {
+    e.preventDefault()
+    const searchEvent = document.getElementById('searchEvent').value
+    window.location.href = `/Events/search/${searchEvent}`
+  })
   if (isLoggedIn === 'true') {
     const username = localStorage.getItem('username')
     const userData = localStorage.getItem('userData');
@@ -36,6 +41,22 @@ function Home() {
         <p className="text-3xl mb-[20px] text-tigetgold">
           Welcome , {username}!
         </p>
+
+        <form id="SearchForm">
+        <div className="flex border-tigetgold border-4 rounded-full w-full md:w-[45rem] h-16 hover:border-8  mb-10">
+            <input className="bg-transparent p-2 md:p-8 text-sm md:text-xl text-tigetgold text-bold w-full md:w-[45rem] h-16 border-none placeholder-tigetgold focus:outline-none focus:border-transparent"
+            type="search" name="searchEvent" id="searchEvent" placeholder="Search your event here!" required/>
+
+            <button type="submit">
+            <div className="grid place-items-center h-full w-12 text-tigetgold mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </div>
+        </button>
+        </div>
+      </form>
+      
         <p className=" text-xl text-[white] p-4 text-center">
           Welcome to TIGET! We are currently under development.
           Wish you a great day!
@@ -56,6 +77,22 @@ function Home() {
       <h1 className="text-9xl font-bold text-tigetgold2 m-4 mt-0 p-4 pb-0 align-center">
         TIGET
       </h1>
+
+      <form id="SearchForm">
+        <div className="flex border-tigetgold border-4 rounded-full w-full md:w-[45rem] h-16 hover:border-8  mb-10">
+            <input className="bg-transparent p-2 md:p-8 text-sm md:text-xl text-tigetgold text-bold w-full md:w-[45rem] h-16 border-none placeholder-tigetgold focus:outline-none focus:border-transparent"
+            type="search" name="searchEvent" id="searchEvent" placeholder="Search your event here!" required/>
+
+            <button type="submit">
+            <div className="grid place-items-center h-full w-12 text-tigetgold mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </div>
+        </button>
+        </div>
+      </form>
+
       
       <p className="text-3xl mb-[20px] text-tigetgold">
         We are currently under development.

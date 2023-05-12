@@ -23,6 +23,9 @@ import LoginAdmin from "./components/admin/Login_Admin";
 import LandingAdmin from "./components/admin/Landing_Admin";
 import EventOnline from "./components/Common/EventOnline";
 import EventOffline from "./components/Common/EventOffline";
+import EventOfflineSeat from "./components/Common/EventOfflineSeat";
+import HomeSearch from "./components/Common/HomeSearch";
+import EventsSearch from "./components/Common/EventSearch";
 
 
 
@@ -50,6 +53,7 @@ function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/Home" element={<Landing />} />
             <Route path="/Events" element={<Events />} />
+            <Route path="/Events/search/:keyword" element={<EventsSearch />} />
             <Route path="/watchOnline" element={<WatchOnline />} />
             <Route path="/Ticket" element={<Ticket />} />
             <Route path="/AboutUs" element={<Landing />} />
@@ -60,6 +64,7 @@ function App() {
             <Route path="/Admin" element={<LoginAdmin />} />
             {/* event with event code in params */}
             <Route path="/Events/offline/:eventCode" element={<EventOffline/>} />
+            <Route path="/Seat" element={<EventOfflineSeat />} />
             <Route path="/Events/online/:eventCode" element={<EventOnline />} />
             <Route path="/Admin/Landing" element={<LandingAdmin />} />
             <Route path="*" element={<h1 className="text-tigetgold text-8xl py-16">404: Not Found</h1>} />

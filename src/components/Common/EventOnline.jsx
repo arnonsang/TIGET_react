@@ -1,7 +1,32 @@
 import React from "react";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
+import Loading from "../Loading";
 
 function EventOnline() {
+    const [eventData, setEventData] = React.useState({})
+  const [isLoading, setIsLoading] = React.useState(true)
+  const { eventCode } = useParams();
+  const [tryState, setTryState] = React.useState(0)
+  React.useEffect(() => {
+
+    fetch(`https://oauth.iamickdev.com/tiget/getEvent/${eventCode}`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        if(data.status === 'error'){
+          setTryState(tryState+1)
+        }else{
+          setEventData(data.data)
+          console.log('Event is ready!', data.data)
+          setIsLoading(false)
+          document.title = `${data.data.EventName} | TIGET`
+        }
+      })
+  }, [eventCode, tryState])
+  if(isLoading){
+    return <Loading/>
+  }
   return (
     <>
       <Container>
@@ -10,25 +35,22 @@ function EventOnline() {
             <div className="blur-none">
               <img
                 className="w-[33.125rem] h-[35.5rem] object-fit"
-                src="https://picsum.photos/450/600"
-                alt="poster"
+                src={eventData.EventPoster}
+                alt={eventData.EvenShortName+"s_poster"}
               />
             </div>
             <div className="p-16">
               <h1 className="font-bold text-3xl text-tigetgold drop-shadow-[0_3px_3px_rgba(0,0,0,0.8)]">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
-                placeat.
+                {eventData.EventName}
               </h1>
               <h2 className="font-semibold text-xl text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mt-8">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Laborum libero sed accusantium dolorum magni. Cum ea atque
-                labore quasi debitis voluptas quo earum eos molestias.
+                {eventData.EventDescription}
               </h2>
               <h3 className="font-semibold text-xl text-tigetgold  drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mt-4">
-                10-10-2010 at Location
+                {eventData.EventDate} at {eventData.EventVenue}
               </h3>
               <p className="font-semibold text-xl text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mt-4">
-                #TIGETEVENT #KPOP
+                {eventData.EventTag}
               </p>
               <a href="#buyticket">
                 {" "}
@@ -59,7 +81,7 @@ function EventOnline() {
 
         {/* Ticket buy form*/}
         <div className="mt-8 w-full flex flex-col xl:flex-row ">
-        <img className="grow" src="https://picsum.photos/450/600" alt="poster" />
+        <img className="grow" src={eventData.EventPoster} alt="poster" />
 
         
         <div className="mt-8 xl:mt-0 flex-1 flex-col items-left justify-left">
@@ -104,7 +126,7 @@ function EventOnline() {
                     </select>
                 </div>
                 {/* submit button */}
-                <button className="w-full bg-tigetgold text-white font-semibold text-xl rounded-full px-8 py-2 mt-12 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Buy Ticket</button>
+                <button disabled className="w-full bg-tigetgold text-white font-semibold text-xl rounded-full px-8 py-2 mt-12 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Buy Ticket</button>
             </form>
         </div>
     </div>
