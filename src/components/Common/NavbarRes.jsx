@@ -8,12 +8,10 @@ export default function NavBarRes() {
   const isLoggedIn = localStorage.getItem("isLoggedIn");
   const changeBackground = () => {
     if (window.scrollY >= 80) {
-      setNavbar(true);
-    } else {
       setNavbar(false);
     }
   };
-  // window.addEventListener("scroll", changeBackground);
+  window.addEventListener("scroll", changeBackground);
 
   const activeLinkTextColor = (thisLink) => {
     let myLink = thisLink;
@@ -27,9 +25,6 @@ export default function NavBarRes() {
       return "text-tigetgold";
     }
   };
-
-
-  
 
   if (isLoggedIn === "true") {
     const username = localStorage.getItem("username");
@@ -88,19 +83,57 @@ export default function NavBarRes() {
               }`}
             >
               <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                <li className={"font-normal hover:text-[white] hover:font-semibold "+activeLinkTextColor("/Home")}>
+                <li
+                  className={
+                    "font-normal hover:text-[white] hover:font-semibold " +
+                    activeLinkTextColor("/Home")
+                  }
+                >
                   <a href="/">Home</a>
                 </li>
-                <li className={"font-normal hover:text-[white] hover:font-semibold "+activeLinkTextColor("/AboutUs")}>
+                <li
+                  className={
+                    "font-normal hover:text-[white] hover:font-semibold " +
+                    activeLinkTextColor("/AboutUs")
+                  }
+                >
                   <a href="/AboutUs">About us</a>
                 </li>
-                <li className={"font-normal hover:text-[white] hover:font-semibold " +activeLinkTextColor("/Events")}>
+                <li
+                  className={
+                    "font-normal hover:text-[white] hover:font-semibold " +
+                    activeLinkTextColor("/Events")
+                  }
+                >
                   <a href="/Events">Events</a>
                 </li>
-                <li className={"font-normal hover:text-[white] hover:font-semibold " +activeLinkTextColor("/MyTicket")}>
+                <li
+                  className={
+                    "font-normal hover:text-[white] hover:font-semibold " +
+                    activeLinkTextColor("/MyTicket")
+                  }
+                >
                   <a href="/MyTicket">My Ticket</a>
                 </li>
               </ul>
+
+              <div className="mt-3 space-y-2 xl:hidden lg:hidden">
+            <form id="SearchForm" className='md:hidden l-0'>
+        <div className="flex border-tigetgold border-2 mt-12 md:mt-4 md:m rounded-full  md:w-[45rem] md:h-16 hover:border-8  mb-10">
+            <input className="bg-transparent p-2 md:p-8 text-sm md:text-xl text-tigetgold text-bold w-full md:w-[45rem] md:h-16 border-none placeholder-tigetgold focus:outline-none focus:border-transparent"
+            type="search" name="searchEvent" id="searchEvent" placeholder="Search your event here!" required/>
+
+            <button type="submit">
+            <div className="grid place-items-center h-full w-12 text-tigetgold mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </div>
+        </button>
+        </div>
+      </form>
+      </div>
+      
 
               <div className="mt-3 space-y-2 xl:hidden lg:hidden">
                 <a
@@ -112,13 +145,16 @@ export default function NavBarRes() {
                 <a
                   href="#!"
                   className="inline-block w-full px-4 py-2 text-center text-gray-800 bg-white rounded-md shadow  hover:bg-gray-800 hover:text-white"
-                  onClick={()=>{
-                    const confirm = window.confirm('Are you sure you want to logout?')
-                    if(!confirm) return
-                    localStorage.clear()
-                    alert('Logged out!')
-                    window.location.reload()
-                  }}>
+                  onClick={() => {
+                    const confirm = window.confirm(
+                      "Are you sure you want to logout?"
+                    );
+                    if (!confirm) return;
+                    localStorage.clear();
+                    alert("Logged out!");
+                    window.location.reload();
+                  }}
+                >
                   Logout
                 </a>
               </div>
@@ -134,13 +170,16 @@ export default function NavBarRes() {
             <a
               href="#!"
               className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-tigetgold2 hover:text-white"
-              onClick={()=>{
-                const confirm = window.confirm('Are you sure you want to logout?')
-                if(!confirm) return
-                localStorage.clear()
-                alert('Logged out!')
-                window.location.reload()
-              }}>
+              onClick={() => {
+                const confirm = window.confirm(
+                  "Are you sure you want to logout?"
+                );
+                if (!confirm) return;
+                localStorage.clear();
+                alert("Logged out!");
+                window.location.reload();
+              }}
+            >
               Logout
             </a>
           </div>
@@ -158,7 +197,7 @@ export default function NavBarRes() {
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <a href="/">
               <h2 className="text-tigetgold text-3xl font-bold p-6 text-center hidden md:block">
-                TIGET 
+                TIGET
               </h2>
             </a>
 
@@ -198,11 +237,6 @@ export default function NavBarRes() {
                 )}
               </button>
             </div>
-
-
-            
-
-            
           </div>
         </div>
         <div>
@@ -211,42 +245,84 @@ export default function NavBarRes() {
               navbar ? "block" : "hidden"
             }`}
           >
-            <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                <li className={"font-normal hover:text-[white] hover:font-semibold "+activeLinkTextColor("/Home")}>
-                  <a href="/">Home</a>
-                </li>
+            <ul className="items-center justify-center text-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+              <li
+                className={
+                  "font-normal hover:text-[white] hover:font-semibold " +
+                  activeLinkTextColor("/Home")
+                }
+              >
+                <a href="/">Home</a>
+              </li>
 
-                <li className={"font-normal hover:text-[white] hover:font-semibold " +activeLinkTextColor("/Events")}>
-                  <a href="/Events">Events</a>
-                </li>
-                <li className={"font-normal hover:text-[white] hover:font-semibold " +activeLinkTextColor("/Ticket")}>
-                  <a href="/Ticket">Verify Ticket</a>
-                </li>
-              
-              <li className={"text-tigetgold font-normal hover:text-[white] hover:font-semibold "+activeLinkTextColor("/watchOnline")}>
+              <li
+                className={
+                  "font-normal hover:text-[white] hover:font-semibold " +
+                  activeLinkTextColor("/Events")
+                }
+              >
+                <a href="/Events">Events</a>
+              </li>
+              <li
+                className={
+                  "font-normal hover:text-[white] hover:font-semibold " +
+                  activeLinkTextColor("/Ticket")
+                }
+              >
+                <a href="/Ticket">Verify Ticket</a>
+              </li>
+
+              <li
+                className={
+                  "text-tigetgold font-normal hover:text-[white] hover:font-semibold " +
+                  activeLinkTextColor("/watchOnline")
+                }
+              >
                 <a href="/watchOnline">Watch Live</a>
               </li>
-              <li className={"font-normal hover:text-[white] hover:font-semibold "+activeLinkTextColor("/AboutUs")}>
-                  <a href="/AboutUs">About us</a>
-                </li>
+              <li
+                className={
+                  "font-normal hover:text-[white] hover:font-semibold " +
+                  activeLinkTextColor("/AboutUs")
+                }
+              >
+                <a href="/AboutUs">About us</a>
+              </li>
             </ul>
 
             <div className="mt-3 space-y-2 xl:hidden lg:hidden">
-            <form id="SearchForm" className='md:hidden l-0'>
-        <div className="flex border-tigetgold border-2 mt-12 md:mt-4 md:m rounded-full  md:w-[45rem] md:h-16 hover:border-8  mb-10">
-            <input className="bg-transparent p-2 md:p-8 text-sm md:text-xl text-tigetgold text-bold w-full md:w-[45rem] md:h-16 border-none placeholder-tigetgold focus:outline-none focus:border-transparent"
-            type="search" name="searchEvent" id="searchEvent" placeholder="Search your event here!" required/>
+              <form id="SearchForm" className="md:hidden l-0">
+                <div className="flex border-tigetgold border-2 mt-12 md:mt-4 md:m rounded-full  md:w-[45rem] md:h-16 hover:border-8  mb-10">
+                  <input
+                    className="bg-transparent p-2 md:p-8 text-sm md:text-xl text-tigetgold text-bold w-full md:w-[45rem] md:h-16 border-none placeholder-tigetgold focus:outline-none focus:border-transparent"
+                    type="search"
+                    name="searchEvent"
+                    id="searchEvent"
+                    placeholder="Search your event here!"
+                    required
+                  />
 
-            <button type="submit">
-            <div className="grid place-items-center h-full w-12 text-tigetgold mr-2">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
+                  <button type="submit">
+                    <div className="grid place-items-center h-full w-12 text-tigetgold mr-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                        />
+                      </svg>
+                    </div>
+                  </button>
+                </div>
+              </form>
             </div>
-        </button>
-        </div>
-      </form>
-      
             <div className="mt-3 space-y-2 xl:hidden lg:hidden">
               <a
                 href="/Login"
@@ -261,8 +337,6 @@ export default function NavBarRes() {
                 Sign up
               </a>
             </div>
-            
-      </div>
           </div>
         </div>
         <div className="hidden space-x-2 lg:inline-block">

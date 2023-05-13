@@ -42,7 +42,7 @@ function Home() {
           Welcome , {username}!
         </p>
 
-        <form id="SearchForm">
+        <form id="SearchForm" className='hidden md:block'>
         <div className="flex border-tigetgold border-4 rounded-full h-20 w-[10rem] md:w-[45rem] md:h-16 hover:border-8  mb-10">
             <input className="bg-transparent p-2 md:p-8 text-sm md:text-xl text-tigetgold text-bold h-full w-full md:w-[45rem] md:h-16 border-none placeholder-tigetgold focus:outline-none focus:border-transparent"
             type="search" name="searchEvent" id="searchEvent" placeholder="Search your event here!" required/>
