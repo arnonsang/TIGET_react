@@ -54,7 +54,7 @@ export default function EventsSearch() {
   "EventShortName": "SAMPLEEVENT3",
   "EventDate": "2021-07-31",
   "EventTime": "12:00:00",
-  "EventDescription": "This is a sample event",
+  "EventDescriptionription": "This is a sample event",
   "EventPoster": "https://i.imgur.com/3QXm2oF.jpg",
   "EventCoordinators": "Sample Coordinator 1, Sample Coordinator 2",
   "EventAvailable": null,
@@ -88,7 +88,7 @@ export default function EventsSearch() {
           <EventCard
             key={event._id}
             title={event.EventName}
-            desc={event.EventDescription}
+            desc={event.EventDescriptionription}
             date={event.EventDate}
             keyname={event.EventCode}
             location={event.EventVenue}

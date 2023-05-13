@@ -50,41 +50,41 @@ async function createEvent(data){
 
 module.exports = createEvent;
 
-const mockupData = {
-    EventType: "Offline",
-    EventName: "Sample Event 3",
-    EventShortName: "SAMPLEEVENT3",
-    EventDate: "2021-07-31",
-    EventTime: "12:00:00",
-    EventDescription: "This is a sample event",
-    EventPoster: "https://i.imgur.com/3QXm2oF.jpg",
-    EventCoordinators: "Sample Coordinator 1, Sample Coordinator 2",
-    EventAvailableZone: "[A, B, C ,D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R]",
-    EventAvailableSeats: [{
-        "Zone":"A",
-        "Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
-    },{
-        "Zone":"B",
-        "Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
-    },{
-        "Zone":"C",
-        "Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
-    },{
-        "Zone":"D",
-        "Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
-    },{
-        "Zone":"E",
-        "Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
-    },{
-        "Zone":"F",
-        "Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
-    },{
-        "Zone":"G",
-        "Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
-    },{
-        "Zone":"H",
-        "Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
-    }]
-}
+// const mockupData = {
+//     EventType: "Offline",
+//     EventName: "Sample Event 3",
+//     EventShortName: "SAMPLEEVENT3",
+//     EventDate: "2021-07-31",
+//     EventTime: "12:00:00",
+//     EventDescriptionription: "This is a sample event",
+//     EventPoster: "https://i.imgur.com/3QXm2oF.jpg",
+//     EventCoordinators: "Sample Coordinator 1, Sample Coordinator 2",
+//     EventAvailableZone: "[A, B, C ,D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R]",
+//     EventAvailableSeats: [{
+//         "Zone":"A",
+//         "Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+//     },{
+//         "Zone":"B",
+//         "Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+//     },{
+//         "Zone":"C",
+//         "Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+//     },{
+//         "Zone":"D",
+//         "Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+//     },{
+//         "Zone":"E",
+//         "Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+//     },{
+//         "Zone":"F",
+//         "Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+//     },{
+//         "Zone":"G",
+//         "Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+//     },{
+//         "Zone":"H",
+//         "Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+//     }]
+// }
 
-createEvent(mockupData)
+// createEvent(mockupData)

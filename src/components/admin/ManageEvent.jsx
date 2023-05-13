@@ -13,12 +13,12 @@ function ManageEvent() {
     <><div>ManageEvent</div><table>
           <thead>
               <tr>
-                  <th>EventKeyID</th>
-                  <th>EventKeyName</th>
-                  <th>EventTitle</th>
+                  <th>EventCode</th>
+                  <th>EventShortName</th>
+                  <th>EventName</th>
                   <th>EventDate</th>
                   <th>EventLocation</th>
-                  <th>EventDesc</th>
+                  <th>EventDescription</th>
                   <th>EventTag</th>
                   <th>EventPoster</th>
                   <th>EventType</th>
@@ -28,13 +28,13 @@ function ManageEvent() {
           <tbody>
               {event.map((item) => {
                     return (
-                        <tr key={item.EventKeyID}>
-                            <td>{item.EventKeyID}</td>
-                            <td>{item.EventKeyName}</td>
-                            <td>{item.EventTitle}</td>
+                        <tr key={item.EventCode}>
+                            <td>{item.EventCode}</td>
+                            <td>{item.EventShortName}</td>
+                            <td>{item.EventName}</td>
                             <td>{item.EventDate}</td>
                             <td>{item.EventLocation}</td>
-                            <td>{item.EventDesc}</td>
+                            <td>{item.EventDescription}</td>
                             <td>{item.EventTag}</td>
                             <td>{item.EventPoster}</td>
                             <td>{item.EventType}</td>

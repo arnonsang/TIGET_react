@@ -7,7 +7,7 @@ function ManageEventCreate() {
         e.preventDefault()
         const EventName = document.getElementById('EventName').value
         const EventShortName = document.getElementById('EventShortName').value
-        const EventDescription = document.getElementById('EventDescription').value
+        const EventDescription = document.getElementById('EventDescriptionription').value
         const EventPoster = document.getElementById('EventPoster').value
         const EventCoordinators = document.getElementById('EventCoordinators').value
         const EventVenue = document.getElementById('EventVenue').value
@@ -86,7 +86,7 @@ function ManageEventCreate() {
                 })
         }
     })
-    
+
 
   return (
     <Container>
@@ -96,7 +96,7 @@ function ManageEventCreate() {
             <form className="flex flex-col justify-left items-left gap-2">
                 <input type="text" name="EventName" id="" placeholder="Event Name" className="w-[35rem] h-[3rem] p-8 text-tigetgold text-2xl bg-transparent border-solid border-[5px] border-tigetgold rounded-full placeholder-tigetgold"></input>
                 <input type="text" name="EventShortName" id="" placeholder="Event Short Name" className="w-[35rem] h-[3rem] p-8 text-tigetgold text-2xl bg-transparent border-solid border-[5px] border-tigetgold rounded-full placeholder-tigetgold"></input>
-                <input type="text" name="EventDescription" id="" placeholder="Event Description" className="w-[35rem] h-[3rem] p-8 text-tigetgold text-2xl bg-transparent border-solid border-[5px] border-tigetgold rounded-full placeholder-tigetgold"></input>
+                <input type="text" name="EventDescriptionription" id="" placeholder="Event Description" className="w-[35rem] h-[3rem] p-8 text-tigetgold text-2xl bg-transparent border-solid border-[5px] border-tigetgold rounded-full placeholder-tigetgold"></input>
                 <input type="url" name="EventPoster" id="" placeholder="Event Poster URL" className="w-[35rem] h-[3rem] p-8 text-tigetgold text-2xl bg-transparent border-solid border-[5px] border-tigetgold rounded-full placeholder-tigetgold"></input>
                 <input type="text" name="EventCoordinators" id="" placeholder="Event Coordinators" className="w-[35rem] h-[3rem] p-8 text-tigetgold text-2xl bg-transparent border-solid border-[5px] border-tigetgold rounded-full placeholder-tigetgold"></input>
                 <input type="text" name="EventVenue" id="" placeholder="Event Venue" className="w-[35rem] h-[3rem] p-8 text-tigetgold text-2xl bg-transparent border-solid border-[5px] border-tigetgold rounded-full placeholder-tigetgold"></input>

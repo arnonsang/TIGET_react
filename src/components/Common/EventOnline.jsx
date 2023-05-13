@@ -34,7 +34,7 @@ function EventOnline() {
           <div class="w-full h-full flex flex-col xl:flex-row justify-left items-left backdrop-blur-lg">
             <div className="blur-none">
               <img
-                className="w-[33.125rem] h-[35.5rem] object-fit"
+                className="w-[33.125rem] object-cover"
                 src={eventData.EventPoster}
                 alt={eventData.EvenShortName+"s_poster"}
               />
@@ -44,7 +44,7 @@ function EventOnline() {
                 {eventData.EventName}
               </h1>
               <h2 className="font-semibold text-xl text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mt-8">
-                {eventData.EventDescription}
+                {eventData.EventDescriptionription}
               </h2>
               <h3 className="font-semibold text-xl text-tigetgold  drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mt-4">
                 {eventData.EventDate} at {eventData.EventVenue}
@@ -81,10 +81,10 @@ function EventOnline() {
 
         {/* Ticket buy form*/}
         <div className="mt-8 w-full flex flex-col xl:flex-row ">
-        <img className="grow" src={eventData.EventPoster} alt="poster" />
+        <img className="flex flex-1 w-[33.125rem] object-cover" src={eventData.EventPoster} alt="poster" />
 
         
-        <div className="mt-8 xl:mt-0 flex-1 flex-col items-left justify-left">
+        <div className="mt-8 xl:mt-0 flex grow flex-col items-left justify-left">
             <h1 className="ml-6 text-3xl font-bold text-tigetgold" id="buyticket">Buy Ticket</h1>
             <form className="ml-8 pt-2">
                 <div className="flex flex-col">
@@ -126,7 +126,7 @@ function EventOnline() {
                     </select>
                 </div>
                 {/* submit button */}
-                <button disabled className="w-full bg-tigetgold text-white font-semibold text-xl rounded-full px-8 py-2 mt-12 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Buy Ticket</button>
+                <button disabled className="w-full xl:w-[30rem] bg-red-500 hover:cursor-not-allowed text-white font-semibold text-xl rounded-full px-8 py-2 mt-12 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Ticket not available!</button>
             </form>
         </div>
     </div>
