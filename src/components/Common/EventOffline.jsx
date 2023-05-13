@@ -99,10 +99,10 @@ function EventOffline() {
                 {eventData.EventName}
               </h1>
               <h2 className="font-semibold text-xl text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mt-8">
-                {eventData.EventDescriptionription}
+                {eventData.EventDescription}
               </h2>
               <h3 className="font-semibold text-xl text-tigetgold  drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mt-4">
-                {eventData.EventDate} at {eventData.EventVenue}
+                {eventData.EventDate} at {eventData.EventVenue ? eventData.EventVenue : "TBA"}
               </h3>
               <p className="font-semibold text-xl text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mt-4">
                 {eventData.EventTag}

@@ -21,8 +21,10 @@ export default function Events() {
         setEventData(data.data)
         console.log('Event is ready!', data.data)
         setIsLoding(false)
+
       })
   }, []);
+
 
   if(isLoding){
     return (
@@ -52,7 +54,8 @@ export default function Events() {
   return (
     <Container>
       <h2 className="text-3xl text-tigetgold  font-bold mb-5">
-      {eventData.length} Events! 
+      {eventData.length} Events available!
+
       </h2><br />
       <EventList>
       {eventData.map((event, i) => {
@@ -60,7 +63,7 @@ export default function Events() {
           <EventCard
             key={event._id}
             title={event.EventName}
-            desc={event.EventDescriptionription}
+            desc={event.EventDescription}
             date={event.EventDate}
             keyname={event.EventCode}
             location={event.EventVenue}
@@ -72,7 +75,58 @@ export default function Events() {
         )
       })}
       </EventList>
-      
+
+      <h2 className="text-3xl text-tigetgold  font-bold mb-5">
+      Online Events 
+      </h2><br />
+
+      <EventList>
+        {eventData.map((event, i) => {
+          if(event.EventType.toLowerCase() === "online"){
+          return (
+            <EventCard
+              key={event._id}
+              title={event.EventName}
+              desc={event.EventDescription}
+              date={event.EventDate}
+              keyname={event.EventCode}
+              location={event.EventVenue}
+              tag={event.EventTag}
+              type={event.EventType}
+              poster={event.EventPoster}
+              status={event.EventStatus}
+            />
+          )}else{
+            return null
+          }
+        })}
+      </EventList>
+
+      <h2 className="text-3xl text-tigetgold  font-bold mb-5">
+      Offline Events 
+      </h2><br />
+
+      <EventList>
+        {eventData.map((event, i) => {
+          if(event.EventType.toLowerCase() === "offline"){
+          return (
+            <EventCard
+              key={event._id}
+              title={event.EventName}
+              desc={event.EventDescription}
+              date={event.EventDate}
+              keyname={event.EventCode}
+              location={event.EventVenue}
+              tag={event.EventTag}
+              type={event.EventType}
+              poster={event.EventPoster}
+              status={event.EventStatus}
+            />
+          )}else{
+            return null
+          }
+        })}
+      </EventList>
     </Container>
     
     
