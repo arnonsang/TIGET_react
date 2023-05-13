@@ -32,15 +32,18 @@ function Home() {
   const handleSubmit = (e) => {
     e.preventDefault()
     const searchEvent = e.currentTarget.elements.searchEvent.value;
-    if(searchEvent === '') return alert('Please fill the keyword!');
-    if(searchEvent.length < 3) return alert('Please fill the keyword with at least 3 characters!'
-    );
-    if(searchEvent.length > 20) return alert('Please fill the keyword with less than 20 characters!'
-    );
-    if(searchEvent.startWith('#')) return alert('Please fill the keyword without #!'
-    );
-    if(searchEvent.includes(' ')) return alert('Please fill the keyword without spaces!'
-    );
+    if(searchEvent === '') {
+      return alert('Please fill the keyword!');
+    }else if(searchEvent.length < 3) {
+      return alert('Please fill the keyword with at least 3 characters!');
+    }else if(searchEvent.length > 20) {
+      return alert('Please fill the keyword with less than 20 characters!');
+    }else if(String(searchEvent).startsWith('#')) {
+      return alert('Please fill the keyword without # at the beginning');
+    }else if(searchEvent.includes(' ')) {
+      return alert('Please fill the keyword without spaces!');
+    }
+    
     window.location.href = `/Events/search/${searchEvent}`;
   }
 
