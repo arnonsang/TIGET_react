@@ -24,11 +24,18 @@ function Home() {
               window.location.reload()
   }
   const isLoggedIn  = localStorage.getItem('isLoggedIn')
-  document.addEventListener("submit", (e) => {
+  // document.addEventListener("submit", (e) => {
+  //   e.preventDefault()
+  //   const searchEvent = document.getElementById('searchEvent').value
+  //   window.location.href = `/Events/search/${searchEvent}`
+  // })
+  const handleSubmit = (e) => {
     e.preventDefault()
-    const searchEvent = document.getElementById('searchEvent').value
-    window.location.href = `/Events/search/${searchEvent}`
-  })
+    const searchEvent = e.currentTarget.elements.searchEvent.value;
+    if(searchEvent === '') return alert('Please fill the search bar!');
+    window.location.href = `/Events/search/${searchEvent}`;
+  }
+
   if (isLoggedIn === 'true') {
     const username = localStorage.getItem('username')
     const userData = localStorage.getItem('userData');
@@ -42,7 +49,7 @@ function Home() {
           Welcome , {username}!
         </p>
 
-        <form id="SearchForm" className='hidden md:block'>
+        <form id="SearchForm" className='hidden md:block' onSubmit={handleSubmit}>
         <div className="flex border-tigetgold border-4 rounded-full h-20 w-[10rem] md:w-[45rem] md:h-16 hover:border-8  mb-10">
             <input className="bg-transparent p-2 md:p-8 text-sm md:text-xl text-tigetgold text-bold h-full w-full md:w-[45rem] md:h-16 border-none placeholder-tigetgold focus:outline-none focus:border-transparent"
             type="search" name="searchEvent" id="searchEvent" placeholder="Search your event here!" required/>
@@ -78,7 +85,7 @@ function Home() {
         TIGET
       </h1>
 
-      <form id="SearchForm" className='hidden md:flex'>
+      <form id="SearchForm" className='hidden md:flex' onSubmit={handleSubmit}>
         <div className="flex border-tigetgold border-4 mt-4 md:m rounded-full h-20 w-[10rem] md:w-[45rem] md:h-16 hover:border-8  mb-10">
             <input className="bg-transparent p-2 md:p-8 text-sm md:text-xl text-tigetgold text-bold w-full md:w-[45rem] h-16 border-none placeholder-tigetgold focus:outline-none focus:border-transparent"
             type="search" name="searchEvent" id="searchEvent" placeholder="Search your event here!" required/>

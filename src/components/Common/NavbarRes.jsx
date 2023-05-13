@@ -26,6 +26,13 @@ export default function NavBarRes() {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const searchEvent = e.currentTarget.elements.searchEvent.value;
+    if(searchEvent === '') return alert('Please fill the search bar!');
+    window.location.href = `/Events/search/${searchEvent}`;
+  }
+
   if (isLoggedIn === "true") {
     const username = localStorage.getItem("username");
     return (
@@ -118,7 +125,7 @@ export default function NavBarRes() {
               </ul>
 
               <div className="mt-3 space-y-2 xl:hidden lg:hidden">
-            <form id="SearchForm" className='md:hidden l-0'>
+            <form id="SearchForm" className='md:hidden l-0' onSubmit={handleSubmit}>
         <div className="flex border-tigetgold border-2 mt-12 md:mt-4 md:m rounded-full  md:w-[45rem] md:h-16 hover:border-8  mb-10">
             <input className="bg-transparent p-2 md:p-8 text-sm md:text-xl text-tigetgold text-bold w-full md:w-[45rem] md:h-16 border-none placeholder-tigetgold focus:outline-none focus:border-transparent"
             type="search" name="searchEvent" id="searchEvent" placeholder="Search your event here!" required/>
@@ -291,7 +298,7 @@ export default function NavBarRes() {
             </ul>
 
             <div className="mt-3 space-y-2 xl:hidden lg:hidden">
-              <form id="SearchForm" className="md:hidden l-0">
+              <form id="SearchForm" className="md:hidden l-0" onSubmit={handleSubmit}>
                 <div className="flex border-tigetgold border-2 mt-12 md:mt-4 md:m rounded-full  md:w-[45rem] md:h-16 hover:border-8  mb-10">
                   <input
                     className="bg-transparent p-2 md:p-8 text-sm md:text-xl text-tigetgold text-bold w-full md:w-[45rem] md:h-16 border-none placeholder-tigetgold focus:outline-none focus:border-transparent"
