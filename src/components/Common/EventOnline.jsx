@@ -31,7 +31,7 @@ function EventOnline() {
     <>
       <Container>
         <div className="flex flex-col bg-[url('https://picsum.photos/200/300')] bg-cover bg-center">
-          <div class="w-full h-full flex flex-col xl:flex-row justify-left items-left backdrop-blur-lg">
+          <div className="w-full h-full flex flex-col xl:flex-row justify-left items-left backdrop-blur-lg">
             <div className="blur-none">
               <img
                 className="w-[33.125rem] object-cover"

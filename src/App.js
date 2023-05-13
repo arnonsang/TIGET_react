@@ -26,6 +26,7 @@ import EventOffline from "./components/Common/EventOffline";
 import HomeSearch from "./components/Common/HomeSearch";
 import EventsSearch from "./components/Common/EventSearch";
 import ManageEventCreate from "./components/admin/ManageEventCreate";
+import DemoPlan from "./assets/images/DemoPlan";
 
 
 
@@ -50,8 +51,10 @@ function App() {
       <ContentSection>
         <BrowserRouter>
           <Routes>
+            
             <Route path="/" element={<Landing />} />
             <Route path="/Home" element={<Landing />} />
+            <Route path="/Plan" element={<DemoPlan />}/>
             <Route path="/Events" element={<Events />} />
             <Route path="/Events/search/:keyword" element={<EventsSearch />} />
             <Route path="/watchOnline" element={<WatchOnline />} />

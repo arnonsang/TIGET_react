@@ -35,16 +35,16 @@ function Home() {
     console.log(userData);
     return (  
       <Container>
-        <h1 className="text-9xl font-bold text-tigetgold2 m-4 mt-0 p-4 pb-0 align-center">
-          TIGET
-        </h1>
+        <h1 className="text-7xl md:text-9xl font-bold text-tigetgold2 m-4 mt-0 p-4 pb-0 align-center">
+        TIGET
+      </h1>
         <p className="text-3xl mb-[20px] text-tigetgold">
           Welcome , {username}!
         </p>
 
         <form id="SearchForm">
-        <div className="flex border-tigetgold border-4 rounded-full w-full md:w-[45rem] h-16 hover:border-8  mb-10">
-            <input className="bg-transparent p-2 md:p-8 text-sm md:text-xl text-tigetgold text-bold w-full md:w-[45rem] h-16 border-none placeholder-tigetgold focus:outline-none focus:border-transparent"
+        <div className="flex border-tigetgold border-4 rounded-full h-20 w-[10rem] md:w-[45rem] md:h-16 hover:border-8  mb-10">
+            <input className="bg-transparent p-2 md:p-8 text-sm md:text-xl text-tigetgold text-bold h-full w-full md:w-[45rem] md:h-16 border-none placeholder-tigetgold focus:outline-none focus:border-transparent"
             type="search" name="searchEvent" id="searchEvent" placeholder="Search your event here!" required/>
 
             <button type="submit">
@@ -57,7 +57,7 @@ function Home() {
         </div>
       </form>
       
-        <p className=" text-xl text-[white] p-4 text-center">
+        <p className="hidden md:flex text-xl text-[white] p-4 text-center">
           Welcome to TIGET! We are currently under development.
           Wish you a great day!
         </p>
@@ -74,12 +74,12 @@ function Home() {
 
   return (
     <Container>
-      <h1 className="text-9xl font-bold text-tigetgold2 m-4 mt-0 p-4 pb-0 align-center">
+      <h1 className="text-7xl md:text-9xl font-bold text-tigetgold2 m-4 mt-0 p-4 pb-0 align-center">
         TIGET
       </h1>
 
-      <form id="SearchForm">
-        <div className="flex border-tigetgold border-4 rounded-full w-full md:w-[45rem] h-16 hover:border-8  mb-10">
+      <form id="SearchForm" className='hidden md:flex'>
+        <div className="flex border-tigetgold border-4 mt-4 md:m rounded-full h-20 w-[10rem] md:w-[45rem] md:h-16 hover:border-8  mb-10">
             <input className="bg-transparent p-2 md:p-8 text-sm md:text-xl text-tigetgold text-bold w-full md:w-[45rem] h-16 border-none placeholder-tigetgold focus:outline-none focus:border-transparent"
             type="search" name="searchEvent" id="searchEvent" placeholder="Search your event here!" required/>
 
@@ -94,10 +94,10 @@ function Home() {
       </form>
 
       
-      <p className="text-3xl mb-[20px] text-tigetgold">
+      <p className="hidden md:flex text-3xl mb-[20px] text-tigetgold">
         We are currently under development.
       </p>
-      <p className="text-xl text-[white] p-4 text-center">
+      <p className="hidden md:flex text-xl text-[white] p-10 text-left md:text-center">
         You can register for our newsletter to get the latest updates.
       </p>
       <button className="bg-tigetgold text-black font-bold mt-6 py-2 px-4 rounded-full"

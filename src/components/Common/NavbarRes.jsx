@@ -153,14 +153,15 @@ export default function NavBarRes() {
 
   return (
     <nav className="w-screen bg-[#131313] shadow">
-      <div className="justify-between px-4 mx-auto lg:max-w-7xl lg:items-center lg:flex md:px-8">
+      <div className="justify-between px-2 ml-0 mx-auto lg:max-w-7xl lg:items-center lg:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <a href="/">
-              <h2 className="text-tigetgold text-3xl font-bold p-6 text-center ">
+              <h2 className="text-tigetgold text-3xl font-bold p-6 text-center hidden md:block">
                 TIGET 
               </h2>
             </a>
+
             <div className="md:hidden">
               <button
                 className="p-2 text-tigetgold rounded-md outline-none focus:border-tigetgold focus:border"
@@ -197,6 +198,11 @@ export default function NavBarRes() {
                 )}
               </button>
             </div>
+
+
+            
+
+            
           </div>
         </div>
         <div>
@@ -224,6 +230,23 @@ export default function NavBarRes() {
                   <a href="/AboutUs">About us</a>
                 </li>
             </ul>
+
+            <div className="mt-3 space-y-2 xl:hidden lg:hidden">
+            <form id="SearchForm" className='md:hidden l-0'>
+        <div className="flex border-tigetgold border-2 mt-12 md:mt-4 md:m rounded-full  md:w-[45rem] md:h-16 hover:border-8  mb-10">
+            <input className="bg-transparent p-2 md:p-8 text-sm md:text-xl text-tigetgold text-bold w-full md:w-[45rem] md:h-16 border-none placeholder-tigetgold focus:outline-none focus:border-transparent"
+            type="search" name="searchEvent" id="searchEvent" placeholder="Search your event here!" required/>
+
+            <button type="submit">
+            <div className="grid place-items-center h-full w-12 text-tigetgold mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </div>
+        </button>
+        </div>
+      </form>
+      
             <div className="mt-3 space-y-2 xl:hidden lg:hidden">
               <a
                 href="/Login"
@@ -238,6 +261,8 @@ export default function NavBarRes() {
                 Sign up
               </a>
             </div>
+            
+      </div>
           </div>
         </div>
         <div className="hidden space-x-2 lg:inline-block">

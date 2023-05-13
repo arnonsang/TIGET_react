@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import Loading from "../Loading";
+import DemoPlan from "../../assets/images/DemoPlan";
 
 function EventOffline() {
   const [eventData, setEventData] = React.useState({});
@@ -85,7 +86,7 @@ function EventOffline() {
     <>
       <Container>
         <div className="flex flex-col bg-[url('https://picsum.photos/200/300')] bg-cover bg-center">
-          <div class="w-full h-full flex flex-col xl:flex-row justify-left items-left backdrop-blur-lg">
+          <div className="w-full h-full flex flex-col xl:flex-row justify-left items-left backdrop-blur-lg">
             <div className="blur-none">
               <img
                 className="w-[33.125rem] object-cover"
@@ -181,250 +182,11 @@ function EventOffline() {
             <div className="ml-8 pt-2">
               <p className="text-lg font-semibold text-red-500">
               Seat Selection is under development
-                
               </p>
-            </div>
-            <div className="w-[30rem] object-fit">
-            <svg
-  viewBox="-2637.589 -2878.519 5645.115 5724.474"
-  width="5645.115"
-  height="5724.474"
->
-  <defs>
-    <radialGradient
-      gradientUnits="userSpaceOnUse"
-      cx="85.377"
-      cy="-2198.369"
-      r="187.969"
-      id="gradient-0"
-      gradientTransform="matrix(2.352273, 0, 0, 2.352273, -93.447311, 2922.251709)"
-    >
-      <stop offset={0} style={{ stopColor: "#bada55" }} />
-      <stop offset={1} style={{ stopColor: "#758d29" }} />
-    </radialGradient>
-  </defs>
-  <g>
-    <g>
-      <ellipse
-        style={{ stroke: "rgb(0, 0, 0)" }}
-        cx="249.463"
-        cy="249.463"
-        rx="748.389"
-        ry="748.389"
-      />
-      <rect
-        y="-2004.82"
-        width="498.926"
-        height="2274.886"
-        style={{ stroke: "rgb(0, 0, 0)" }}
-      />
-      <rect
-        x="-2494.63"
-        y="-2506.025"
-        width="5488.186"
-        height="501.205"
-        style={{ stroke: "rgb(0, 0, 0)" }}
-      />
-    </g>
-    <text
-      style={{
-        fill: "rgb(255, 255, 255)",
-        fontFamily: "Arial, sans-serif",
-        fontSize: "338.5px",
-        stroke: "url(#gradient-0)",
-        strokeLinecap: "round",
-        whiteSpace: "pre"
-      }}
-      x="-334.771"
-      y="-2134.098"
-    >
-      STAGE
-    </text>
-  </g>
-  <text
-    style={{
-      whiteSpace: "pre",
-      fill: "rgb(51, 51, 51)",
-      fontFamily: "Arial, sans-serif",
-      fontSize: "176.3px"
-    }}
-    x="-502.226"
-    y="-2719.19"
-  >
-    {" "}
-  </text>
-  <g>
-    <g>
-      <rect
-        x="-2494.63"
-        y="-1895.31"
-        width="2393.033"
-        height="1256.784"
-        style={{ stroke: "rgb(0, 0, 0)", fill: "rgb(255, 0, 0)" }}
-      />
-      <rect
-        x="614.492"
-        y="-1895.31"
-        width="2393.033"
-        height="1256.784"
-        style={{ stroke: "rgb(0, 0, 0)", fill: "rgb(255, 0, 0)" }}
-      />
-    </g>
-    <text
-      style={{
-        fill: "rgb(255, 255, 255)",
-        fontFamily: "Arial, sans-serif",
-        fontSize: "238.6px",
-        stroke: "rgb(0, 0, 0)",
-        strokeWidth: 12,
-        whiteSpace: "pre"
-      }}
-      x="-1683.12"
-      y="-1225.36"
-      transform="matrix(1.808557, 0, 0, 1.65037, 1390.155518, 876.13147)"
-    >
-      AL
-    </text>
-    <text
-      style={{
-        fill: "rgb(255, 255, 255)",
-        fontFamily: "Arial, sans-serif",
-        fontSize: "238.6px",
-        stroke: "rgb(0, 0, 0)",
-        strokeWidth: 12,
-        whiteSpace: "pre"
-      }}
-      x="-1683.12"
-      y="-1225.36"
-      transform="matrix(1.808557, 0, 0, 1.65037, 4580.806152, 876.053772)"
-    >
-      AR
-    </text>
-  </g>
-  <text
-    style={{
-      whiteSpace: "pre",
-      fill: "rgb(51, 51, 51)",
-      fontFamily: "Arial, sans-serif",
-      fontSize: "238.6px"
-    }}
-    x="-2637.589"
-    y="-662.903"
-  >
-    {" "}
-  </text>
-  <g>
-    <g>
-      <path
-        style={{ stroke: "rgb(0, 0, 0)", fill: "rgb(254, 0, 199)" }}
-        d="M 2944.704 -512.302 L 590.991 -494.991 L 604.961 1008.559 L 3000.512 986.301 C 2708.758 920.399 2023.091 61.682 2944.704 -512.302 Z"
-        transform="matrix(-0.999957, -0.009291, 0.009291, -0.999957, 3589.120181, 512.930698)"
-      />
-      <path
-        style={{ stroke: "rgb(0, 0, 0)", fill: "rgb(254, 0, 199)" }}
-        d="M -167.16 -506.912 L -2520.875 -489.601 L -2506.905 1013.95 L -111.351 991.692 C -303.893 924.868 -1094.508 161.069 -167.16 -506.912 Z"
-        transform="matrix(0.999916, 0.012961, -0.012961, 0.999916, 3.175311, 17.079441)"
-      />
-    </g>
-    <text
-      style={{
-        fill: "rgb(255, 255, 255)",
-        fontFamily: "Arial, sans-serif",
-        fontSize: "238.6px",
-        stroke: "rgb(0, 0, 0)",
-        strokeWidth: 12,
-        whiteSpace: "pre"
-      }}
-      x="-1683.12"
-      y="-1225.36"
-      transform="matrix(1.808557, 0, 0, 1.65037, 1307.155518, 2379.668701)"
-    >
-      BL
-    </text>
-    <text
-      style={{
-        fill: "rgb(255, 255, 255)",
-        fontFamily: "Arial, sans-serif",
-        fontSize: "238.6px",
-        stroke: "rgb(0, 0, 0)",
-        strokeWidth: 12,
-        whiteSpace: "pre"
-      }}
-      x="-1683.12"
-      y="-1225.36"
-      transform="matrix(1.808557, 0, 0, 1.65037, 4541.796387, 2379.668701)"
-    >
-      BR
-    </text>
-  </g>
-  <g>
-    <rect
-      x="-637.255"
-      y="1087.504"
-      width="1767.41"
-      height="1758.181"
-      style={{ stroke: "rgb(0, 0, 0)", fill: "rgb(30, 0, 255)" }}
-    />
-    <path
-      d="M -754.758 1194.506 L -754.758 3007.339 L -2494.744 3007.339 L -754.758 1194.506 Z"
-      data-bx-shape="triangle -2494.744 1194.506 1739.986 1812.833 1 0 1@7888444f"
-      style={{ stroke: "rgb(0, 0, 0)", fill: "rgb(0, 115, 255)" }}
-      transform="matrix(-0.010236, -0.999948, 0.999948, -0.010236, -3732.799316, 363.568268)"
-    />
-    <path
-      d="M 4234.74 -1176.838 L 4234.74 609.183 L 2494.749 609.183 L 4234.74 -1176.838 Z"
-      data-bx-shape="triangle 2494.749 -1176.838 1739.991 1786.021 1 0 1@f1d3f0e8"
-      style={{ stroke: "rgb(0, 0, 0)", fill: "rgb(0, 115, 255)" }}
-      transform="matrix(-0.010236, -0.999948, -0.999948, 0.010236, 1856.284723, 5334.06744)"
-    />
-    <text
-      style={{
-        fill: "rgb(255, 255, 255)",
-        fontFamily: "Arial, sans-serif",
-        fontSize: "238.6px",
-        stroke: "rgb(0, 0, 0)",
-        strokeWidth: 12,
-        whiteSpace: "pre"
-      }}
-      x="-1683.12"
-      y="-1225.36"
-      transform="matrix(1.808557, 0, 0, 1.65037, 3014.018311, 4100.267578)"
-    >
-      SM
-    </text>
-    <text
-      style={{
-        fill: "rgb(255, 255, 255)",
-        fontFamily: "Arial, sans-serif",
-        fontSize: "238.6px",
-        stroke: "rgb(0, 0, 0)",
-        strokeWidth: 12,
-        whiteSpace: "pre"
-      }}
-      y="-1225.36"
-      x="-1683.12"
-      transform="matrix(1.808557, 0, 0, 1.65037, 4494.061523, 3885.129883)"
-    >
-      SR
-    </text>
-    <text
-      style={{
-        fill: "rgb(255, 255, 255)",
-        fontFamily: "Arial, sans-serif",
-        fontSize: "238.6px",
-        stroke: "rgb(0, 0, 0)",
-        strokeWidth: 12,
-        whiteSpace: "pre"
-      }}
-      y="-1225.36"
-      x="-1683.12"
-      transform="matrix(1.808557, 0, 0, 1.65037, 1399.134033, 3885.129883)"
-    >
-      SL
-    </text>
-  </g>
-</svg>
-
+              <SVGImg className="w-full">
+                <DemoPlan />
+              </SVGImg>
+              
             </div>
           </div>
         </div>
@@ -452,3 +214,7 @@ const Container = styled.div`
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 `;
+
+const SVGImg = styled.div`
+  
+`
