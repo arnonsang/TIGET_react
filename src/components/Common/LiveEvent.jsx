@@ -5,9 +5,9 @@ function LiveStreaming() {
   return (
     <>
     <Container>
-        <div class="flex flex-row">
+        <div class="flex flex-col md:flex-row">
         <iframe className='flex grow' width={1050} height={550} src="https://www.youtube.com/embed/MYTfTKGSRr8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        <iframe className="flex flex-1" height={550} src="https://socketchat--arnonsang-ngern.repl.co" id='chat' title='tigetChat' frameborder="0"></iframe>
+        <iframe className="flex grow md:flex-1" height={550} src="https://socketchat--arnonsang-ngern.repl.co" id='chat' title='tigetChat' frameborder="0"></iframe>
         </div>
     </Container>
     </>

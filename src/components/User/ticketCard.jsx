@@ -2,15 +2,15 @@ import React from 'react'
 
 function TicketCard(props) {
   const isActived = props.status === 'approved' ? 'w-[475px] h-[274px] flex flex-row rounded overflow-hidden shadow-lg bg-gray-600/20  m-4 ' : 'w-[475px] h-[274px] flex flex-row rounded overflow-hidden shadow-lg bg-transparent m-4 grayscale';
-  // const isActiveLink = props.status === 'active' ? "/Events/"+props.keyname.trim() : "/Events";
-  const isActiveLink = "https://tiget.bysamnorr.proj.iamickdev.com/watchOnline/Live?ticketCode=O-yzBlsi"
+  const isActiveLink = props.status === 'approved' ? "/LiveTest" : "#";
+
 
 
   return (
     <a href={isActiveLink} key={props.key} id={props.key}>
             <div
               className={isActived}>
-              <img className='w-[200px]' src={"https://placeholder.pics/svg/150x220/291F00/FFCE00-000000"} alt={props.title} />
+              <img className='w-[200px]' src={"https://placeholder.pics/svg/150x220/291F00/FFCE00-000000/Test%20event"} alt={props.title} />
               <div className="px-6 py-4">
                 <div className="font-bold text-md mb-2 text-tigetgold">
                   <p>Event: {props.title}</p>
