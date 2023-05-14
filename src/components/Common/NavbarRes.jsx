@@ -210,7 +210,7 @@ export default function NavBarRes() {
 
   return (
     <nav className="w-screen bg-[#131313] shadow">
-      <div className="justify-between px-2 ml-0 mx-auto lg:max-w-7xl lg:items-center lg:flex md:px-8">
+      <div className="justify-between px-4 mx-auto lg:max-w-7xl lg:items-center lg:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <a href="/">
