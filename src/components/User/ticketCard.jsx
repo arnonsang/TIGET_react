@@ -2,7 +2,8 @@ import React from 'react'
 
 function TicketCard(props) {
   const isActived = props.status === 'approved' ? 'w-[475px] h-[274px] flex flex-row rounded overflow-hidden shadow-lg bg-gray-600/20  m-4 ' : 'w-[475px] h-[274px] flex flex-row rounded overflow-hidden shadow-lg bg-transparent m-4 grayscale';
-  const isActiveLink = props.status === 'active' ? "/Events/"+props.keyname.trim() : "/Events";
+  // const isActiveLink = props.status === 'active' ? "/Events/"+props.keyname.trim() : "/Events";
+  const isActiveLink = "https://tiget.bysamnorr.proj.iamickdev.com/watchOnline/Live?ticketCode=O-yzBlsi"
 
 
   return (
