@@ -144,17 +144,17 @@ function EventOnline() {
                     <input className="w-full xl:w-[30rem] h-[2rem] rounded-lg bg-gray-600/50 text-white text-lg font-semibold p-2 mt-2" type="text" placeholder="Address" name="address" id='address'/>
                 </div>
                 <div className="flex flex-col mt-4">
-                    <label className="text-lg font-semibold text-white" name="tickettype" id="tickettype">Ticket Type</label>
-                    <select className="w-full xl:w-[30rem] h-[2rem] rounded-lg bg-gray-600/50 text-white text-lg font-semibold p-2 mt-2">
-                        <option value="1" selected>General Admission</option>
-                        <option value="2">VIP</option>
-                        <option value="3">VVIP</option>
+                    <label className="text-lg font-semibold text-white" >Ticket Type</label>
+                    <select className="w-full xl:w-[30rem] h-[2rem] rounded-lg bg-gray-600/50 text-white text-lg font-semibold p-2 mt-2" name="tickettype" id="tickettype">
+                        <option value="GA" selected>General Admission</option>
+                        <option value="VIP">VIP</option>
+                        <option value="VVIP">VVIP</option>
                     </select>
                 </div>
 
                 <div className="flex flex-col mt-4">
-                    <label className="text-lg font-semibold text-white" name="paymentmethod" id="paymentmethod">Payment Method</label>
-                    <select className="w-full xl:w-[30rem] h-[2rem] rounded-lg bg-gray-600/50 text-white text-lg font-semibold p-2 mt-2">
+                    <label className="text-lg font-semibold text-white" >Payment Method</label>
+                    <select className="w-full xl:w-[30rem] h-[2rem] rounded-lg bg-gray-600/50 text-white text-lg font-semibold p-2 mt-2" name="paymentmethod" id="paymentmethod">
                         <option value="1" selected>Credit Card</option>
                         <option value="2">Debit Card</option>
                         <option value="3">True Wallet</option>
