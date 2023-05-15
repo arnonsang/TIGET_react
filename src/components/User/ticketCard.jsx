@@ -25,8 +25,6 @@ import React from 'react'
 function TicketCard(props) {
   const [ticketData, setTicketData] = React.useState([])
   const [isLoding, setIsLoding] = React.useState(true)
-  const isActived = props.status === 'isApproved' ? 'w-[475px] h-[274px] flex flex-row rounded overflow-hidden shadow-lg bg-gray-600/20  m-4 ' : 'w-[475px] h-[274px] flex flex-row rounded overflow-hidden shadow-lg bg-transparent m-4 grayscale';
-  const isActiveLink = props.status === 'isApproved' ? "/LiveTest" : "#";
   const [tryCount, setTryCount] = React.useState(0);
 
   React.useEffect(() => {
@@ -72,7 +70,8 @@ function TicketCard(props) {
 
 
 
-
+  const isActived = ticketData.ticket.TicketStatus === 'isApproved' ? 'w-[475px] h-[274px] flex flex-row rounded overflow-hidden shadow-lg bg-gray-600/20  m-4 ' : 'w-[475px] h-[274px] flex flex-row rounded overflow-hidden shadow-lg bg-transparent m-4 grayscale';
+  const isActiveLink = ticketData.ticket.TicketStatus === 'isApproved' ? "/LiveTest" : "#";
   return (
     <a href={isActiveLink} key={props.key} id={props.key}>
             <div
