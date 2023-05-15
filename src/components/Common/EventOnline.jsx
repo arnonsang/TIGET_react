@@ -24,6 +24,46 @@ function EventOnline() {
         }
       })
   }, [eventCode, tryState])
+
+  const formhandler = (e) => {
+    e.preventDefault()
+    const fullname = e.currentTarget.elements.fullname.value
+    const email = e.currentTarget.elements.email.value
+    const phone = e.currentTarget.elements.phone.value
+    const address = e.currentTarget.elements.address.value
+    const tickettype = e.currentTarget.elements.tickettype.value
+    const paymentmethod = e.currentTarget.elements.paymentmethod.value
+    console.log(fullname, email, phone, address, tickettype, paymentmethod)
+    fetch('https://oauth.iamickdev.com/tiget/bookTicket', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+        },
+        body: JSON.stringify({
+          EventCode: eventCode,
+          fullname: fullname,
+          email: email,
+          phone: phone,
+          address: address,
+          tickettype: tickettype,
+          paymentmethod: paymentmethod
+        })
+        })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        if(data.status === 'ok'){
+          alert('Ticket booked successfully!')
+          window.location.href = '/Landing'
+        }else{
+          alert('Unable to book ticket, please try again.')
+        }
+      }
+      )
+  }
   if(isLoading){
     return <Loading/>
   }
@@ -44,7 +84,7 @@ function EventOnline() {
                 {eventData.EventName}
               </h1>
               <h2 className="font-semibold text-xl text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mt-8">
-                {eventData.EventDescriptionription}
+                {eventData.EventDescription}
               </h2>
               <h3 className="font-semibold text-xl text-tigetgold  drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mt-4">
                 {eventData.EventDate} at {eventData.EventVenue}
@@ -86,47 +126,49 @@ function EventOnline() {
         
         <div className="mt-8 xl:mt-0 flex grow flex-col items-left justify-left">
             <h1 className="ml-6 text-3xl font-bold text-tigetgold" id="buyticket">Buy Ticket</h1>
-            <form className="ml-8 pt-2">
+            <form className="ml-8 pt-2" onSubmit={formhandler}>
                 <div className="flex flex-col">
                     <label className="text-lg font-semibold text-white">Full Name</label>
-                    <input className="w-full xl:w-[30rem] h-[2rem] rounded-lg bg-gray-600/50 text-white text-lg font-semibold p-2 mt-2" type="text" placeholder="Full Name" />
+                    <input className="w-full xl:w-[30rem] h-[2rem] rounded-lg bg-gray-600/50 text-white text-lg font-semibold p-2 mt-2" type="text" placeholder="Full Name" name="fullname" id="fullname" />
                 </div>
                 <div className="flex flex-col mt-4">
                     <label className="text-lg font-semibold text-white">Email</label>
-                    <input className="w-full xl:w-[30rem] h-[2rem] rounded-lg bg-gray-600/50 text-white text-lg font-semibold p-2 mt-2" type="text" placeholder="Email" />
+                    <input className="w-full xl:w-[30rem] h-[2rem] rounded-lg bg-gray-600/50 text-white text-lg font-semibold p-2 mt-2" type="email" placeholder="Email" name="email" id='email' />
                 </div>
                 <div className="flex flex-col mt-4">
                     <label className="text-lg font-semibold text-white">Phone Number</label>
-                    <input className="w-full xl:w-[30rem] h-[2rem] rounded-lg bg-gray-600/50 text-white text-lg font-semibold p-2 mt-2" type="text" placeholder="Phone Number" />
+                    <input className="w-full xl:w-[30rem] h-[2rem] rounded-lg bg-gray-600/50 text-white text-lg font-semibold p-2 mt-2" type="tel" placeholder="Phone Number"  name="phone" id='phone'/>
                 </div>
                 <div className="flex flex-col mt-4">
                     <label className="text-lg font-semibold text-white">Address</label>
-                    <input className="w-full xl:w-[30rem] h-[2rem] rounded-lg bg-gray-600/50 text-white text-lg font-semibold p-2 mt-2" type="text" placeholder="Address" />
+                    <input className="w-full xl:w-[30rem] h-[2rem] rounded-lg bg-gray-600/50 text-white text-lg font-semibold p-2 mt-2" type="text" placeholder="Address" name="address" id='address'/>
                 </div>
                 <div className="flex flex-col mt-4">
-                    <label className="text-lg font-semibold text-white">Ticket Type</label>
+                    <label className="text-lg font-semibold text-white" name="tickettype" id="tickettype">Ticket Type</label>
                     <select className="w-full xl:w-[30rem] h-[2rem] rounded-lg bg-gray-600/50 text-white text-lg font-semibold p-2 mt-2">
-                        <option value="1">General Admission</option>
+                        <option value="1" selected>General Admission</option>
                         <option value="2">VIP</option>
                         <option value="3">VVIP</option>
                     </select>
                 </div>
+
                 <div className="flex flex-col mt-4">
-                    <label className="text-lg font-semibold text-white">Quantity</label>
-                    <input className="w-full xl:w-[30rem] h-[2rem] rounded-lg bg-gray-600/50 text-white text-lg font-semibold p-2 mt-2" type="number" placeholder="Quantity" />
-                </div>
-                <div className="flex flex-col mt-4">
-                    <label className="text-lg font-semibold text-white">Payment Method</label>
+                    <label className="text-lg font-semibold text-white" name="paymentmethod" id="paymentmethod">Payment Method</label>
                     <select className="w-full xl:w-[30rem] h-[2rem] rounded-lg bg-gray-600/50 text-white text-lg font-semibold p-2 mt-2">
-                        <option value="1">Credit Card</option>
+                        <option value="1" selected>Credit Card</option>
                         <option value="2">Debit Card</option>
                         <option value="3">True Wallet</option>
                         <option value="4">Paypal</option>
                         <option value="5">QR Code Promptpay</option>
                     </select>
                 </div>
+
+                <div className="flex flex-col mt-4"name="price">
+                    <label className="text-lg font-semibold text-white">Price</label>
+                    <input className="w-full xl:w-[30rem] h-[2rem] rounded-lg bg-gray-600/50 text-white text-lg font-semibold p-2 mt-2" type="text" placeholder="FREE FOR NOW" readOnly/>
+                </div>
                 {/* submit button */}
-                <button disabled className="w-full xl:w-[30rem] bg-red-500 hover:cursor-not-allowed text-white font-semibold text-xl rounded-full px-8 py-2 mt-12 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Ticket not available!</button>
+                <button  className="w-full xl:w-[30rem] bg-tigetgold hover:cursor-pointer text-tigetblack font-semibold text-xl rounded-full px-8 py-2 mt-12 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Buy ticket!</button>
             </form>
         </div>
     </div>

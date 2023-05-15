@@ -22,7 +22,7 @@ export default function TicketList() {
   }else{
     email = user.email;
   }
-    fetch(`https://oauth.iamickdev.com/tiget/ticket/email/${email}`)
+    fetch(`https://tiget.bysamnorr.proj.iamickdev.com/apis/ticket/tigetClient/${email}`)
       .then((response) => response.json())
       .then((data) => {
         setTicketData(data)
@@ -34,8 +34,29 @@ export default function TicketList() {
   if(isLoading){
     return <Loading/>
   }
-  
-  if (ticketData.date.length === 0) {
+  /*
+  example ticket data
+    {
+  "_id": {
+    "$oid": "645d09791aeb52cddf8cae43"
+  },
+  "EventCode": "SAMPLEEVENT1",
+  "EventType": "offline",
+  "TicketOwnerData": {
+    "TicketOwnerName": "Ticket Admin",
+    "TicketOwnerEmail": "hellotiget@hotmail.com",
+    "TicketOwnerPhone": "+66968825197",
+    "TicketOwnerAddress": "Bangkok, Thailand"
+  },
+  "TicketCode": "SAMPLECODE1",
+  "TicketZone": "A",
+  "TicketSeat": 1,
+  "TicketType": "VIP",
+  "TicketPrice": 6500,
+  "TicketStatus": "isPending"
+}
+  */
+  if (ticketData.res.length === 0) {
     return (
       <>
         <Container>
@@ -57,12 +78,19 @@ export default function TicketList() {
       <div className="flex flex-wrap justify-center gap-8 items-center">
       { 
         
-        ticketData.data.map((item) => {
+        ticketData.res.map((item) => {
           
           return (
             <TicketCard 
-              key={item._id.$oid}
-              TicketCode={item.TicketCode}
+            key={item.ticketCode +"_"+ item.BuyerName}
+            keyname={item.EventCode}
+            status={item.BuyerPaymentStatus} 
+            title={item.EventCode}
+            date={"TBA"}
+            location={"TBA"}
+            fullname={item.BuyerName}
+            purchaseStatus={item.BuyerPaymentStatus}
+            poster={"NoPOSTER"}
             />
           )
         })
