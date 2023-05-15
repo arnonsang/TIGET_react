@@ -34,8 +34,23 @@ export default function TicketList() {
   if(isLoading){
     return <Loading/>
   }
-  
-  if (ticketData.date.length === 0) {
+
+  if(!ticketData.data){
+    return (
+      <>
+        <Container>
+          <UserInfo />
+          {/* You Do'nt have any ticket with back to home button */}
+          <div className="flex flex-col justify-center items-center gap-4">
+            <h1 className="text-2xl font-bold text-tigetgold mt-4">You don't have any ticket on TIGET!</h1>
+            <button className="bg-tigetgold hover:bg-tigetgoldLight text-white hover:text-tigetblack font-bold py-2 px-4 rounded mt-8" onClick={() => window.location.href = "/Events"}>Buy ticket?</button>
+          </div>
+          </Container>
+      </>
+    );
+  }
+
+  if (ticketData.data.length < 1) {
     return (
       <>
         <Container>

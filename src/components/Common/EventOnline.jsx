@@ -34,6 +34,7 @@ function EventOnline() {
     const tickettype = e.currentTarget.elements.tickettype.value
     const paymentmethod = e.currentTarget.elements.paymentmethod.value
     console.log(fullname, email, phone, address, tickettype, paymentmethod)
+    setIsLoading(true)
     fetch('https://oauth.iamickdev.com/tiget/bookTicket', {
       method: 'POST',
       headers: {
@@ -57,9 +58,11 @@ function EventOnline() {
         console.log(data)
         if(data.status === 'ok'){
           alert('Ticket booked successfully!')
-          window.location.href = '/Landing'
+          window.location.href = '/'
+          setIsLoading(false)
         }else{
           alert('Unable to book ticket, please try again.')
+          setIsLoading(false)
         }
       }
       )
@@ -121,7 +124,7 @@ function EventOnline() {
 
         {/* Ticket buy form*/}
         <div className="mt-8 w-full flex flex-col xl:flex-row ">
-        <img className="flex flex-1 w-[33.125rem] object-cover" src={eventData.EventPoster} alt="poster" />
+        <img className="flex w-[33.125rem] object-cover" src={eventData.EventPoster} alt="poster" />
 
         
         <div className="mt-8 xl:mt-0 flex grow flex-col items-left justify-left">

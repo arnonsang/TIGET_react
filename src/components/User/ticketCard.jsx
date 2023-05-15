@@ -27,9 +27,10 @@ function TicketCard(props) {
   const [isLoding, setIsLoding] = React.useState(true)
   const isActived = props.status === 'isApproved' ? 'w-[475px] h-[274px] flex flex-row rounded overflow-hidden shadow-lg bg-gray-600/20  m-4 ' : 'w-[475px] h-[274px] flex flex-row rounded overflow-hidden shadow-lg bg-transparent m-4 grayscale';
   const isActiveLink = props.status === 'isApproved' ? "/LiveTest" : "#";
+  const [tryCount, setTryCount] = React.useState(0);
 
   React.useEffect(() => {
-    const result = fetch(`https://oauth.iamickdev.com/tiget/${props.TicketCode}`, {
+    const result = fetch(`https://oauth.iamickdev.com/tiget/ticket/${props.TicketCode}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -46,13 +47,17 @@ function TicketCard(props) {
         setIsLoding(false)
         return result;
       }else{
-        alert('Unable to get ticket data, please try again.')
-        return result;
+        setTryCount(tryCount+1)
+        if(tryCount > 5){
+          setIsLoding(false)
+          return result;
+          
+        }
       }
     }
     )
 
-  }, [props.TicketCode]);
+  }, [props.TicketCode, tryCount]);
 
   /*{"status":"ok","message":"Ticket found","data":{"ticket":{"_id":"645d09791aeb52cddf8cae43","EventCode":"S-3tIJBDdlCX","EventType":"offline","TicketOwnerData":{"TicketOwnerName":"Ticket Admin","TicketOwnerEmail":"hellotiget@hotmail.com","TicketOwnerPhone":"+66968825197","TicketOwnerAddress":"Bangkok, Thailand"},"TicketCode":"SAMPLECODE1","TicketZone":"A","TicketSeat":1,"TicketType":"VIP","TicketPrice":6500,"TicketStatus":"isPending"},"event":{"_id":"645e5d806f2caa2049978abf","EventCode":"S-3tIJBDdlCX","EventShortName":"CONANGRAY","EventName":"CONAN GRAY SUPERACHE TOUR ASIA 2023","EventDate":"2023-02-22","EventTime":"18:00 AM","EventLocation":"IMPACT EXHIBITION...","EventDescription":"Conan Gray is bringing his Superache Tour to Taipei for the first time! Come and get captivated by his...","EventTag":"#SINGLE, #CONANGRAY, #SUPERACHE","EventPoster":"https://www.thaiticketmajor.com/cmsimg/imgeditor/banner-press-conan.jpg","EventType":"offline","EventCoordinators":"JYP","EventAvailableZone":["A","B","C","D","E","F","G","H","I","J","K","L"],"EventAvailableSeats":[{"Zone":"A","Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ,13, 14, 15]"},{"Zone":"B","Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"},{"Zone":"C","Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"},{"Zone":"D","Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9]"},{"Zone":"E","Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9]"},{"Zone":"F","Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9]"},{"Zone":"G","Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9]"},{"Zone":"H","Seat":"[1, 2, 3, 4, 5, 6, 7, 8, 9]"}],"EventStatus":"active"}}} */
   
@@ -91,6 +96,7 @@ function TicketCard(props) {
                 <p className="text-white font-bold text-[15px] mt-2">
                   Status : {ticketData.ticket.TicketStatus}
                 </p>
+                
               </div>
             </div>
             </a>
